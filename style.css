@@ -68,6 +68,13 @@ a {
 	margin: 3em 1em;
 }
 
+.ad{
+	z-index: 9999;
+	position:
+	fixed ! important;
+	right: 3%;
+	bottom: 30px;
+}
 
 .intro {
 	min-height: 27em;
