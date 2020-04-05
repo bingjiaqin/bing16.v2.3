@@ -57,11 +57,62 @@
     <h2>向量</h2>
     <p>抽象数据类型：数据模型+定义在该模型上的一组操作</p>
     <p>数据结构：基于某种特定语言，实现ADT的一整套算法</p>
+
     <h3>接口与实现</h3>
     <p>初始化、插入、剔除、size、查找、排序等操作</p>
     <p>构造与析构、复制等操作</p>
+
     <h3>可扩充向量</h3>
-    <p></p>
+    <p>递增式扩容（最坏情况：在初始容量1的满向量中连续插入n=m×I>>2个元素，总体耗时O(n^2)）、加倍式策略（最坏情况：在初始容量1的满向量中连续插入n=2^m>>2个元素，总体耗时O(n)）</p>
+    <p>平均复杂度（根据出现的概率加权平均，割裂了操作之间的相关性和连贯性）、分摊复杂度（足够多次数后分摊至单次操作，更加忠实地刻画了可能出现的操作序列）</p>
+
+    <h3>无序向量</h3>
+    <p>循秩访问：<br>template &lt;typename T&gt;<br>T & Vector<T>::operator[](Rank r) const { return _elem[r]; }</p>
+    <p>插入：检查容量+后移+更新</p>
+    <p>区间删除：移动+检查容量；单元素删除</p>
+    <p>查找</p>
+    <p>唯一化：划分为三个部分（当前、前缀、后继），通过当前在前缀中查找，如果出现，则剔除当前。O(n^2)</p>
+    <p>遍历</p>
+
+    <h3>有序向量</h3>
+    <p>唯一化：有可能被删除的元素会被后继多次地前移</p>
+    <p>二分查找版本A：O(1.5log(n))，向左和向右比较次数不等而递归深度相同</p>
+    <p>Fibonacci查找：若设n=fib(k)-1，则取mi=fib(k-1)-1，前、后子向量长度分别为fib(k-1)-1、fib(k-2)-1</p>
+    <p>二分查找改进版本B：向左或向右只进行一次比较，整体性能更加稳定</p>
+    <p>二分查找改进版本C：待查找区间宽度至0而非1才结束；转入右侧子向量时，左边界取作mi+1；返回--lo</p>
+    <p>插值查找：假设线性分布，O(log(log(n)))，除非查找区间宽度极大，或者比较操作成本非常高，因为容易受到小扰动的干扰，须引入乘法除法的运算</p>
+    <p>起泡排序：O(n^2)</p>
+    <p>起泡排序改进1：扫描过程中记录是否存在逆序</p>
+    <p>起泡排序改进2：记录上一次扫描的最后一次交换（对于++lo且交换lo-1和lo，令last=lo），减小hi（hi=last）</p>
+    <p>归并排序：O(nlog(n))<xmp>template <typename T>;
+void Vector<T>::mergeSort(Rank lo, Rankhi) {
+    if (hi-li<2) return;
+    int mi = (lo+hi)>>1;
+    mergeSort(lo,mi);
+    mergeSort(mi,hi);
+    merge(lo,mi,hi);
+}
+
+template <typename T>;
+void Vector<T>::mergeSort(Rank lo, Rankhi) {
+    T* A = _elem + lo;
+    int lb = mi - lo; T* B = new T[lb];
+    for (Rank i = 0; i < lb; B[i] = A[i++]); // 复制向前子向量B
+    int lc = hi - mi; T* C = _elem + mi; // 向后子向量C
+    /*
+    for (Rank i = 0, j = 0, k = 0; (j < lb || k <lc);){
+        if((j<lb)&&(lc<=k||B[j]<=C[k])))A[i++]=B[j++];
+        if((k<lc)&&(lb<=j||C[k]<=B[j])))A[i++]=C[j++];
+    } // 此循环实现紧凑，但就效率而言不如拆分处理
+    */
+    // 简化：
+    for (Rank i = 0, j = 0, k = 0; j < lb;){
+        if((k<lc)&&C[k]<=B[j]))A[i++]=C[j++];
+        if(B[j]<=C[k]))A[i++]=B[j++];
+    } // 交换循环体内的次序，删除冗余逻辑
+    delect [] B;
+}
+</xmp></p>
 
 <ul class="icons">
 	<li><a href="../wyzx.html"><span class="label">back</span></a></li>
