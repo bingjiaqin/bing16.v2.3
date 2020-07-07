@@ -8,7 +8,7 @@
 body{
 	width: 70%;
 	max-width: 65em;
-	min-width: 36em;
+	min-width: 40em;
 	padding: 1em 5em;
 	margin: auto;
 	line-height: 1.75;
@@ -141,26 +141,8 @@ a {
     margin-left: 15px;
     margin-top: 18px;
 }
-.header_li_min {
+.header_li {
     float: left;
-    width: 72px;
-    list-style: none;
-}
-.header_li_max {
-    float: left;
-    width: 100px;
-    list-style: none;
-}
-.header_li_mid {
-    float: left;
-    width: 20px;
-    list-style: none;
-    margin-top: -2px;
-    margin-left: -2px;
-}
-.header_li_account {
-    float: left;
-    width: 50px;
     list-style: none;
 }
 
