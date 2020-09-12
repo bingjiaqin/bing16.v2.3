@@ -10,15 +10,19 @@
 </head>
 
 <body>
-	<!-- Header -->
-	<header id="navHead">
-		<my-nav></my-nav>
-	</header>
-	
-	<!--介绍-->
-	<div class="intro">
-		<div class="intro_box" style="width: 50%; position: relative; top: -3em;"><br><h2>乌有之乡</h2><p>没有的地方，或者好地方。</p><p>也有人叫他梦，或者梦想。</p></div>
-		<div class="intro_box" style="width: 50%; position: relative; top: -3em"><table width="100%"><tbody><tr><td></td><td width="450em"><table border="0">
+    <!-- Header -->
+    <header id="navHead">
+        <my-nav></my-nav>
+    </header>
+
+    <div class="Intro">
+        <!-- 欢迎语 -->
+        <div class="IntroBox" style="position: relative; top: -1em">
+            <h2>乌有之乡</h2><p>没有的地方，或者好地方。</p><p>也有人叫他梦，或者梦想。</p>
+        </div>
+
+        <div class="IntroBox" id="picture" style="position: relative; top: -3em">
+        	<table width="100%"><tbody><tr><td></td><td width="450em"><table border="0">
 				  <tbody>
 				    <tr height="100">
 						  <td colspan="3" align="center" width="450em">搜索：<input type="search" title="Ctrl+F可搜索本页内容" value="此处尚未施工完成喔~">&emsp;<input type="submit" title="提交" value="OK"></td>
@@ -40,59 +44,33 @@
 			        </tr>
 			      </tbody>
 			</table></td></tr></tbody></table>
-		</div>
-	</div>
-	
-	<div class="clear"></div>
+        </div>
+    </div>
+
+    <div class="clear"></div>
 	
 	<hr>
-	
-	<div class="content">
-		<div class="m_box" align="center">
-			<div class="m_box_m">
-				<h3>基于XY双轴移动LED的图片再现装置</h3>
-				<p>个人的智能硬件与智能系统小组项目。目前第二版封装完毕。<div><a href="wyzx/ClassProject.html">more</a></div></p>
-			</div>
-			<div class="m_box_m">
-				<h3>MyRPI</h3>
-				<p>个人的树莓派尝试。因为摄像头原因搁置中。。。<div><a href="wyzx/MyRPi.html">more</a></div></p>
-			</div>
-			<div class="m_box_m">
-				<h3>ReRe-未来之书</h3>
-				<p>比赛项目，目前搁置。。。<div><a href="wyzx/ReRe.html">more</a></div></p>
-			</div>
-			<div class="m_box_m">
-				<h3>ROS平台简易教程</h3>
-				<p>结合个人在SRT项目中的使用情况完成。<div><a href="wyzx/ROSLearning.html">more</a></div></p>
-			</div>
-			<div class="m_box_m">
-				<h3>Bing16的柯基小店</h3>
-				<p>一些在科服修电脑的经验总结。<div><a href="wyzx/Kefujilu.html">more</a></div></p>
-			</div>
-			<div class="m_box_m">
-				<h3>基于安卓+某app的自动位置记录脚本</h3>
-				<p>记录某app上距离固定三点的距离，通过求三个圆的交点求确定坐标。<div><a href="wyzx/AutoGetPosition.html">more</a></div></p>
-			</div>
-			<div class="m_box_m">
-				<h3>A-LOAM安装测试</h3>
-				<p>在Ubuntu16.04上安装A-LOAM相关平台并测试。<div><a href="wyzx/A-LOAMTest.html">more</a></div></p>
-			</div>
-			<div class="m_box_m">
-				<h3>LOAM学习</h3>
-				<p>按照论文LOAM: Odometry and Mapping in Real-time的思路对相关算法进行理解。<div><a href="wyzx/LOAMLearning.html">more</a></div></p>
-			</div>
-			<div class="m_box_m">
-				<h3>Livox_LOAM学习</h3>
-				<p>基于固态激光雷达与的定位建图工作。<div><a href="wyzx/LivoxLOAMLearning.html">more</a></div></p>
-			</div>
+
+	<div class="Content" id="wyzx">
+		<div class="ListBox" align="center">
+			<span  v-for="(item, index) in items">
+				<div class="ItemBox" v-if="index >= 9*(pageNum-1) && index < 9*pageNum">
+					<h3>{{ item.title }}</h3>
+					<p>{{ item.intro }}<div><a v-bind:href="item.href">more</a></div></p>
+				</div>
+			</span>
+		</div>
+		<div align="right">
+			<table><tbody>
+				<tr align="center">
+					<td width="50em"><button v-if="pageNum!=1" v-on:click="pageNum -= 1">👈</button><button v-else>👈</button></td>
+					<td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+Math.ceil(items.length / 9)+') {value = 2}'" style="width: 2em; text-align: center;"> / {{ Math.ceil(items.length / 9) }}</td>
+					<td width="50em"><button v-if="pageNum!=Math.ceil(items.length / 9)" v-on:click="pageNum += 1">👉</button><button v-else>👉</button></td>
+				</tr>
+			</tbody></table>
+			
 		</div>
 	</div>
-	
-	<p align="right">
-			&emsp;1
-			&emsp;&emsp;<a href="wyzx/page2.html">2</a>
-			&emsp;
-	</p>
 
     <hr>
 
@@ -107,98 +85,120 @@
                     </ul>
         </div>
         <div class="Subscribe_box_r" align="right">
-        	<table style="margin-top: 6em"><tbody><tr>
-    			<td></td>
-    			<td>
-    				<table cellpadding="0em" cellspacing="0px" border="0px"><tbody>
-    					<tr height="330">
-    						<td bgcolor="#F0F0F0" style="padding-left: 2em; padding-top: 0em">
-    							<table style="word-wrap:break-word;word-break:break-all;background-color: #ffffff" border="1px"><tbody>
-    								<tr>
-									<td>
-										<div style="width: 11em;height: 11em"><div style="font-size: 0.7em">
-											【Bing16】订阅重要动态<hr>
-											<div style="margin-left: 0.5em">
-												用户名：{{userName}}<br>
-												邮箱：{{userEmail}}<br><br>
-												订阅主题：<br>
-												<span v-for="(content,index) in contents" v-if="index!=contents.length-1">{{content}},
-												</span><span v-for="(content,index) in contents" v-if="index==contents.length-1">{{content}}</span>
-											</div>
-										</div></div>
-									</td>
-								</tr></tbody></table>
-							</td>
-    						<td bgcolor="#F0F0F0" style="padding-right: 2.5em; padding-left: 2em; padding-top: 2em">
-    							<div style="width: 12em">
-    							<p align="left">Name<br><input type="text" placeholder="在这里输入名字喔！" v-model="userName" style="width: 15em"></p>
-    							<p align="left">Email<br><input type="text" placeholder="在这里输入邮箱喔！" v-model="userEmail" maxlength="50" style="width: 15em"></p>
-    							<p style="font-size: 0.6em">
-        							<input type="checkbox" id="乌有之乡" value="乌有之乡" v-model="contents"/>
-									<label for="jack">乌有之乡</label>
-									<input type="checkbox" id="随思乱想" value="随思乱想" v-model="contents"/>
-									<label for="john">随思乱想</label>
-									<input type="checkbox" id="浮光掠影" value="浮光掠影" v-model="contents"/>
-									<label for="mike">浮光掠影</label>
-								</p>
-								<p align="right">
-									<a v-bind:href="href+'用户名：'+userName+'%0C'+'邮    箱：'+userEmail+'%0C%0C'+'订阅主题：'+'%0C'+contents+'%0C'"><button style="color: #ff5959">提交</button></a>
-								</p>
-    							</div>
-    						</td>
-    					</tr>
-    				</tbody></table>
-        		</td>
-        	</tr></tbody></table>
-		</div>
+            <table style="margin-top: 6em"><tbody><tr>
+                <td></td>
+                <td>
+                    <table cellpadding="0em" cellspacing="0px" border="0px"><tbody>
+                        <tr height="330">
+                            <td bgcolor="#F0F0F0" style="padding-left: 2em; padding-top: 0em">
+                                <table style="word-wrap:break-word;word-break:break-all;background-color: #ffffff" border="1px"><tbody>
+                                    <tr>
+                                    <td>
+                                        <div style="width: 11em;height: 11em"><div style="font-size: 0.7em">
+                                            【Bing16】订阅重要动态<hr>
+                                            <div style="margin-left: 0.5em">
+                                                用户名：{{userName}}<br>
+                                                邮箱：{{userEmail}}<br><br>
+                                                订阅主题：<br>
+                                                <span v-for="(content,index) in contents" v-if="index!=contents.length-1">{{content}},
+                                                </span><span v-for="(content,index) in contents" v-if="index==contents.length-1">{{content}}</span>
+                                            </div>
+                                        </div></div>
+                                    </td>
+                                </tr></tbody></table>
+                            </td>
+                            <td bgcolor="#F0F0F0" style="padding-right: 2.5em; padding-left: 2em; padding-top: 2em">
+                                <div style="width: 12em">
+                                <p align="left">Name<br><input type="text" placeholder="在这里输入名字喔！" v-model="userName" style="width: 15em"></p>
+                                <p align="left">Email<br><input type="text" placeholder="在这里输入邮箱喔！" v-model="userEmail" maxlength="50" style="width: 15em"></p>
+                                <p style="font-size: 0.6em">
+                                    <input type="checkbox" id="乌有之乡" value="乌有之乡" v-model="contents"/>
+                                    <label for="jack">乌有之乡</label>
+                                    <input type="checkbox" id="随思乱想" value="随思乱想" v-model="contents"/>
+                                    <label for="john">随思乱想</label>
+                                    <input type="checkbox" id="浮光掠影" value="浮光掠影" v-model="contents"/>
+                                    <label for="mike">浮光掠影</label>
+                                </p>
+                                <p align="right">
+                                    <a v-bind:href="href+'用户名：'+userName+'%0d%0a'+'邮    箱：'+userEmail+'%0d%0a%0d%0a'+'订阅主题：'+'%0d%0a'+contents+'%0d%0a'+'%0d%0a'"><button style="color: #ff5959">提交</button></a>
+                                </p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr></tbody></table>
+        </div>
     </div>
 
     <hr>
 
-	<!-- Footer -->
-	<Footer id="navFoot">
-		<my-nav></my-nav>
-	</Footer>
-	<div align="right"><div align="right" style="font-size: 0.9em; margin-top: -1em; margin-bottom: 1em; color:#AAA; width: 500px">© 2018-2020 <a href="https://bingjiaqin.github.io" style="color: #AAA">Bing16</a>. All rights reserved. <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1276882696'%3E%3C/span%3E%3Cscript src='https://s23.cnzz.com/z_stat.php%3Fid%3D1276882696%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></div>
+    <!-- Footer -->
+    <Footer id="navFoot">
+        <my-nav></my-nav>
+    </Footer>
+    <div align="right"><div align="right" style="font-size: 0.9em; margin-top: -1em; margin-bottom: 1em; color:#AAA; width: 500px">© 2018-2020 <a href="https://bingjiaqin.github.io" style="color: #AAA">Bing16</a>. All rights reserved. <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1276882696'%3E%3C/span%3E%3Cscript src='https://s23.cnzz.com/z_stat.php%3Fid%3D1276882696%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></div>
 </body>
 
 
 <script type="text/JavaScript">
-	pageTitle = "乌有之乡"
+    pageTitle = "乌有之乡"
 
-	Vue.component("my-nav", {
-		data: function() {
-			return {
-				navs: [
-				{ title: "主页", style: {width: "72px"}, href: "index.html"},
-				{ title: "乌有之乡", style: {width: "100px"}, href: "wyzx.html"},
-				{ title: "随思乱想", style: {width: "100px"}, href: "sslx.html"},
-				{ title: "浮光掠影", style: {width: "100px"}, href: "fgly.html"},
-				{ title: "|", style: {width: "20px"}},
-				{ title: "关于我", style: {width: "70px"}, href: "about.html"}
-				]
-			}
-		},
-		template: '<div><div class="NavLeft"><div class="NavLogo"><img src="images/logo.jpg" width="40px" height="40px"></div><div class="NavName">Bing16</div></div><div class="NavRight"><ul><li class="NavList" v-for="nav in navs" v-bind:style="nav.style"><a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a></li><li class="NavList" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 5px"></a></li></ul></div><div class="clear"></div></div>'
-	})
+    Vue.component("my-nav", {
+        data: function() {
+            return {
+                navs: [
+                { title: "主页", style: {width: "72px"}, href: "index.html"},
+                { title: "乌有之乡", style: {width: "100px"}, href: "wyzx.html"},
+                { title: "随思乱想", style: {width: "100px"}, href: "sslx.html"},
+                { title: "浮光掠影", style: {width: "100px"}, href: "fgly.html"},
+                { title: "|", style: {width: "20px"}},
+                { title: "关于我", style: {width: "70px"}, href: "about.html"}
+                ]
+            }
+        },
+        template: '<div><div class="NavLeft"><div class="NavLogo"><img src="images/logo.jpg" width="40px" height="40px"></div><div class="NavName">Bing16</div></div><div class="NavRight"><ul><li class="NavList" v-for="nav in navs" v-bind:style="nav.style"><a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a></li><li class="NavList" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 5px"></a></li></ul></div><div class="clear"></div></div>'
+    })
 
-	var appNav = new Vue({
-		el: "#navHead"
-	})
+    var appNav = new Vue({
+        el: "#navHead"
+    })
 
-	var appNav = new Vue({
-		el: "#navFoot"
-	})
+    var appNav = new Vue({
+        el: "#navFoot"
+    })
 
-	var appSubscribe = new Vue({
-		el: "#subscribe",
-		data: {
-			userName: "",
-			userEmail: "",
-			contents: ["乌有之乡","随思乱想","浮光掠影"],
-			href: "mailto:bingjiaqin@foxmail.com?subject=【Bing16】订阅重要动态&body="
-		}
-	})
+    var appSubscribe = new Vue({
+        el: "#subscribe",
+        data: {
+            userName: "",
+            userEmail: "",
+            contents: ["乌有之乡","随思乱想","浮光掠影"],
+            href: "mailto:bingjiaqin@foxmail.com?subject=【Bing16】订阅重要动态&body="
+        }
+    })
+
+   var wyzx = new Vue({
+        el: "#wyzx",
+        data:{
+        	pageNum: 1,
+            items: [
+            {title: "基于XY双轴移动LED的图片再现装置", intro: "个人的智能硬件与智能系统小组项目。目前第二版封装完毕。", href: "wyzx/ClassProject.html"},
+            {title: "MyRPI", intro: "个人的树莓派尝试。因为摄像头原因搁置中。。。", href: "wyzx/MyRPi.html"},
+            {title: "ReRe-未来之书", intro: "比赛项目，目前搁置。。。", href: "wyzx/ReRe.html"},
+            {title: "ROS平台简易教程", intro: "结合个人在SRT项目中的使用情况完成。", href: "wyzx/ROSLearning.html"},
+            {title: "Bing16的柯基小店", intro: "一些在科服修电脑的经验总结。", href: "wyzx/Kefujilu.html"},
+            {title: "基于安卓+某app的自动位置记录脚本", intro: "记录某app上距离固定三点的距离，通过求三个圆的交点求确定坐标。", href: "wyzx/AutoGetPosition.html"},
+            {title: "A-LOAM安装测试", intro: "在Ubuntu16.04上安装A-LOAM相关平台并测试。", href: "wyzx/A-LOAMTest.html"},
+            {title: "LOAM学习", intro: "按照论文LOAM: Odometry and Mapping in Real-time的思路对相关算法进行理解。", href: "wyzx/LOAMLearning.html"},
+            {title: "Livox_LOAM学习", intro: "基于固态激光雷达与的定位建图工作。", href: "wyzx/LivoxLOAMLearning.html"},
+            {title: "Django学习", intro: "新版网站（Django版），目前搁置中。。。", href: "wyzx/DjangoLearning.html"},
+            {title: "激光SLAM", intro: "参考b站视频激光SLAM及论文绪论部分的整理。", href: "wyzx/LiDARSLAM.html"},
+            {title: "数据结构-1", intro: "根据邓老师数据结构课程整理。", href: "wyzx/shujujiegou1.html"},
+            {title: "IV2017-2019", intro: "统计2017-2019欧洲学校在IEEE上的IV论文数量。", href: "wyzx/IV.html"},
+            ]
+        }
+    })
 
 </script>
 </html>

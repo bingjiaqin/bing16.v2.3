@@ -226,7 +226,7 @@ a {
 
 .Intro {
 	min-height: 27em;
-	padding-top: 4em;
+	padding-top: 3em;
 	padding-bottom: 4em;
 	align-items: center;
 	display: flex;
@@ -237,6 +237,7 @@ a {
 .IntroBox {
 	max-width: 24em;
 	min-height: 13em;
+	width: 50%;
 	word-wrap: break-word;
 	padding: 0.5em;
 	margin: 0.5em;
@@ -260,7 +261,7 @@ a {
 }
 
 .Content{
-	margin: 3em 0em;
+	margin: 3em 1em;
 }
 
 .Subscribe {
@@ -272,6 +273,7 @@ a {
 	justify-content: space-around;
 	margin-bottom: 4em;
 }
+
 .Subscribe_box_l {
 	padding-top: 7em;
 	width: 40%;
@@ -280,10 +282,35 @@ a {
 	text-align: left;
 	margin-bottom: 2em;
 }
+
 .Subscribe_box_r {
 	padding-top: 1em;
 	word-wrap: break-word;
 	width: 60%;
 	min-width: 30em;
 	margin-top: -2em;
+}
+
+.ListBox{
+	margin:0 auto;
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.ItemBox {
+	width: 17em;
+	min-height: 13em;
+	word-wrap: break-word;
+	padding: 0.5em;
+	margin: 0.5em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
 }
