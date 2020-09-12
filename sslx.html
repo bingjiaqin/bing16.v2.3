@@ -4,30 +4,15 @@
 <meta charset="utf-8">
 <title>Bing16/随思乱想</title>
 <link href="style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="csslider.css" />
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" media="screen"/>
-<style type="text/css">
-</style>
+<script src="https://cdn.bootcss.com/vue/2.5.20/vue.min.js"></script>
 </head>
 
 <body>
 	<!-- Header -->
-	<header>
-		<div class="header_left" align="left">
-			<div class="header_logo"><img src="images/logo.jpg" width="40px" height="40px" style="margin-top: 3px"></div>
-			<div class="header_name">Bing16</div>
-		</div>
-		<div class="header_right" align="right">
-			<ul>
-				<li class="header_li" style="width: 72px"><a href="index.html">主页</a></li>
-				<li class="header_li" style="width: 95px"><a href="wyzx.html">乌有之乡</a></li>
-				<li class="header_li" style="width: 95px"><a href="sslx.html"><span class="rcolor"><span class="divcss5-x2">随思乱想</span></span></a></li>
-				<li class="header_li" style="width: 95px"><a href="fgly.html">浮光掠影</a></li>
-				<li class="header_li" style="width: 20px">|</li>
-				<li class="header_li" style="width: 70px"><a href="about.html">关于我</a></li>
-				<li class="header_li" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 5px"></a></li>
-			</ul>
-		</div>
-	<div class="clear"></div>
+	<header id="navHead">
+		<my-nav></my-nav>
 	</header>
 
 	<div class="intro_min" style="margin-bottom: 1.5em">
@@ -67,7 +52,7 @@
 	<br>
 	<hr size="2" noshade="noshade" color="#F0F0F0">
 	<div id="container"></div>
-	<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
+	<link rel="stylesheet" href="https://www.wenjunjiang.win/css/gitment.css">
 	<script src="https://www.wenjunjiang.win/js/gitment.js"></script>
 	<script>
 		var gitment = new Gitment({
@@ -84,25 +69,38 @@
 
 
 	<!-- Footer -->
-	<footer>
-		<hr>
-		<div class="header_left" align="left">
-			<div class="header_logo"><img src="images/logo.jpg" width="40px" height="40px" style="margin-top: 3px"></div>
-			<div class="header_name">Bing16</div>
-		</div>
-		<div class="header_right" align="right">
-			<ul>
-				<li class="header_li" style="width: 72px"><a href="index.html">主页</a></li>
-				<li class="header_li" style="width: 95px"><a href="wyzx.html">乌有之乡</a></li>
-				<li class="header_li" style="width: 95px"><a href="sslx.html"><span class="rcolor"><span class="divcss5-x2">随思乱想</span></span></a></li>
-				<li class="header_li" style="width: 95px"><a href="fgly.html">浮光掠影</a></li>
-				<li class="header_li" style="width: 20px">|</li>
-				<li class="header_li" style="width: 70px"><a href="about.html">关于我</a></li>
-				<li class="header_li" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 5px"></a></li>
-			</ul>
-		</div>
-		<div class="clear"></div></footer>
-<div align="right"><div align="right" style="font-size: 0.9em; margin-top: -1em; margin-bottom: 1em; color:#AAA; width: 500px">© 2018-2020 <a href="https://bingjiaqin.github.io" style="color: #AAA">Bing16</a>. All rights reserved. <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1276882696'%3E%3C/span%3E%3Cscript src='https://s23.cnzz.com/z_stat.php%3Fid%3D1276882696%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></div>
+	<Footer id="navFoot">
+		<my-nav></my-nav>
+	</Footer>
+	<div align="right"><div align="right" style="font-size: 0.9em; margin-top: -1em; margin-bottom: 1em; color:#AAA; width: 500px">© 2018-2020 <a href="https://bingjiaqin.github.io" style="color: #AAA">Bing16</a>. All rights reserved. <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1276882696'%3E%3C/span%3E%3Cscript src='https://s23.cnzz.com/z_stat.php%3Fid%3D1276882696%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></div>
 </body>
+<script type="text/JavaScript">
+	pageTitle = "随思乱想"
+
+	Vue.component("my-nav", {
+		data: function() {
+			return {
+				navs: [
+				{ title: "主页", style: {width: "72px"}, href: "index.html"},
+				{ title: "乌有之乡", style: {width: "100px"}, href: "wyzx.html"},
+				{ title: "随思乱想", style: {width: "100px"}, href: "sslx.html"},
+				{ title: "浮光掠影", style: {width: "100px"}, href: "fgly.html"},
+				{ title: "|", style: {width: "20px"}},
+				{ title: "关于我", style: {width: "70px"}, href: "about.html"}
+				]
+			}
+		},
+		template: '<div><div class="NavLeft"><div class="NavLogo"><img src="images/logo.jpg" width="40px" height="40px"></div><div class="NavName">Bing16</div></div><div class="NavRight"><ul><li class="NavList" v-for="nav in navs" v-bind:style="nav.style"><a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a></li><li class="NavList" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 5px"></a></li></ul></div><div class="clear"></div></div>'
+	})
+
+	var appNav = new Vue({
+		el: "#navHead"
+	})
+
+	var appNav = new Vue({
+		el: "#navFoot"
+	})
+
+</script>
 </html>
-<!--53-->
+<!--39-->

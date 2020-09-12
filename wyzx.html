@@ -6,36 +6,17 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="csslider.css" />
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" media="screen"/>
+<script src="https://cdn.bootcss.com/vue/2.5.20/vue.min.js"></script>
 </head>
 
 <body>
 	<!-- Header -->
-	<header>
-		<div class="header_left" align="left">
-			<div class="header_logo"><img src="images/logo.jpg" width="40px" height="40px" style="margin-top: 3px"></div>
-			<div class="header_name">Bing16</div>
-		</div>
-		<div class="header_right" align="right">
-			<ul>
-				<li class="header_li" style="width: 72px"><a href="index.html">主页</a></li>
-				<li class="header_li" style="width: 95px"><a href="wyzx.html"><span class="rcolor"><span class="divcss5-x2">乌有之乡</span></span></a></li>
-				<li class="header_li" style="width: 95px"><a href="sslx.html">随思乱想</a></li>
-				<li class="header_li" style="width: 95px"><a href="fgly.html">浮光掠影</a></li>
-				<li class="header_li" style="width: 20px">|</li>
-				<li class="header_li" style="width: 70px"><a href="about.html">关于我</a></li>
-				<li class="header_li" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 5px"></a></li>
-			</ul>
-		</div>
-	<div class="clear"></div>
+	<header id="navHead">
+		<my-nav></my-nav>
 	</header>
 	
 	<!--介绍-->
 	<div class="intro">
-<!--
-		<div id="Note">
-			<marquee directories="left"><font size="3"><strong>公告 [20200122]：第三版 v3.1 beta（Django版）开发暂停，当前 v2.2 版本继续沿用 v2.1 的框架并修改了部分css样式。 【20190721]：测试时发现电脑端的gitment评论出现异常，暂未维护，评论请发送至bingjiaiqn@foxmail.com。</strong></font></marquee>
-		</div>
--->
 		<div class="intro_box" style="width: 50%; position: relative; top: -3em;"><br><h2>乌有之乡</h2><p>没有的地方，或者好地方。</p><p>也有人叫他梦，或者梦想。</p></div>
 		<div class="intro_box" style="width: 50%; position: relative; top: -3em"><table width="100%"><tbody><tr><td></td><td width="450em"><table border="0">
 				  <tbody>
@@ -113,26 +94,111 @@
 			&emsp;
 	</p>
 
+    <hr>
+
+    <div class="Subscribe" id="subscribe">
+        <div class="Subscribe_box_l">
+            <h2><span class="divcss5-x2-r">订阅重要动态</span></h2>
+            <p>每当有以下动态时，将会直接发送到你的邮箱：</p>
+                    <ul>
+                        <li>网站域名变更</li>
+                        <li>推出新的网站</li>
+                        <li>推出非常值得分享的内容</li>
+                    </ul>
+        </div>
+        <div class="Subscribe_box_r" align="right">
+        	<table style="margin-top: 6em"><tbody><tr>
+    			<td></td>
+    			<td>
+    				<table cellpadding="0em" cellspacing="0px" border="0px"><tbody>
+    					<tr height="330">
+    						<td bgcolor="#F0F0F0" style="padding-left: 2em; padding-top: 0em">
+    							<table style="word-wrap:break-word;word-break:break-all;background-color: #ffffff" border="1px"><tbody>
+    								<tr>
+									<td>
+										<div style="width: 11em;height: 11em"><div style="font-size: 0.7em">
+											【Bing16】订阅重要动态<hr>
+											<div style="margin-left: 0.5em">
+												用户名：{{userName}}<br>
+												邮箱：{{userEmail}}<br><br>
+												订阅主题：<br>
+												<span v-for="(content,index) in contents" v-if="index!=contents.length-1">{{content}},
+												</span><span v-for="(content,index) in contents" v-if="index==contents.length-1">{{content}}</span>
+											</div>
+										</div></div>
+									</td>
+								</tr></tbody></table>
+							</td>
+    						<td bgcolor="#F0F0F0" style="padding-right: 2.5em; padding-left: 2em; padding-top: 2em">
+    							<div style="width: 12em">
+    							<p align="left">Name<br><input type="text" placeholder="在这里输入名字喔！" v-model="userName" style="width: 15em"></p>
+    							<p align="left">Email<br><input type="text" placeholder="在这里输入邮箱喔！" v-model="userEmail" maxlength="50" style="width: 15em"></p>
+    							<p style="font-size: 0.6em">
+        							<input type="checkbox" id="乌有之乡" value="乌有之乡" v-model="contents"/>
+									<label for="jack">乌有之乡</label>
+									<input type="checkbox" id="随思乱想" value="随思乱想" v-model="contents"/>
+									<label for="john">随思乱想</label>
+									<input type="checkbox" id="浮光掠影" value="浮光掠影" v-model="contents"/>
+									<label for="mike">浮光掠影</label>
+								</p>
+								<p align="right">
+									<a v-bind:href="href+'用户名：'+userName+'%0C'+'邮    箱：'+userEmail+'%0C%0C'+'订阅主题：'+'%0C'+contents+'%0C'"><button style="color: #ff5959">提交</button></a>
+								</p>
+    							</div>
+    						</td>
+    					</tr>
+    				</tbody></table>
+        		</td>
+        	</tr></tbody></table>
+		</div>
+    </div>
+
+    <hr>
+
 	<!-- Footer -->
-	<footer>
-		<hr>
-		<div class="header_left" align="left">
-			<div class="header_logo"><img src="images/logo.jpg" width="40px" height="40px" style="margin-top: 3px"></div>
-			<div class="header_name">Bing16</div>
-		</div>
-		<div class="header_right" align="right">
-			<ul>
-				<li class="header_li" style="width: 72px"><a href="index.html">主页</a></li>
-				<li class="header_li" style="width: 95px"><a href="wyzx.html"><span class="rcolor"><span class="divcss5-x2">乌有之乡</span></span></a></li>
-				<li class="header_li" style="width: 95px"><a href="sslx.html">随思乱想</a></li>
-				<li class="header_li" style="width: 95px"><a href="fgly.html">浮光掠影</a></li>
-				<li class="header_li" style="width: 20px">|</li>
-				<li class="header_li" style="width: 70px"><a href="about.html">关于我</a></li>
-				<li class="header_li" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 5px"></a></li>
-			</ul>
-		</div>
-		<div class="clear"></div>
-	</footer>
+	<Footer id="navFoot">
+		<my-nav></my-nav>
+	</Footer>
 	<div align="right"><div align="right" style="font-size: 0.9em; margin-top: -1em; margin-bottom: 1em; color:#AAA; width: 500px">© 2018-2020 <a href="https://bingjiaqin.github.io" style="color: #AAA">Bing16</a>. All rights reserved. <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1276882696'%3E%3C/span%3E%3Cscript src='https://s23.cnzz.com/z_stat.php%3Fid%3D1276882696%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></div>
 </body>
+
+
+<script type="text/JavaScript">
+	pageTitle = "乌有之乡"
+
+	Vue.component("my-nav", {
+		data: function() {
+			return {
+				navs: [
+				{ title: "主页", style: {width: "72px"}, href: "index.html"},
+				{ title: "乌有之乡", style: {width: "100px"}, href: "wyzx.html"},
+				{ title: "随思乱想", style: {width: "100px"}, href: "sslx.html"},
+				{ title: "浮光掠影", style: {width: "100px"}, href: "fgly.html"},
+				{ title: "|", style: {width: "20px"}},
+				{ title: "关于我", style: {width: "70px"}, href: "about.html"}
+				]
+			}
+		},
+		template: '<div><div class="NavLeft"><div class="NavLogo"><img src="images/logo.jpg" width="40px" height="40px"></div><div class="NavName">Bing16</div></div><div class="NavRight"><ul><li class="NavList" v-for="nav in navs" v-bind:style="nav.style"><a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a></li><li class="NavList" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 5px"></a></li></ul></div><div class="clear"></div></div>'
+	})
+
+	var appNav = new Vue({
+		el: "#navHead"
+	})
+
+	var appNav = new Vue({
+		el: "#navFoot"
+	})
+
+	var appSubscribe = new Vue({
+		el: "#subscribe",
+		data: {
+			userName: "",
+			userEmail: "",
+			contents: ["乌有之乡","随思乱想","浮光掠影"],
+			href: "mailto:bingjiaqin@foxmail.com?subject=【Bing16】订阅重要动态&body="
+		}
+	})
+
+</script>
 </html>
