@@ -10,39 +10,47 @@
 </head>
 
 <body>
-	<!-- Header -->
-	<header id="navHead">
-		<my-nav></my-nav>
-	</header>
+    <!-- Header -->
+    <header id="navHead">
+        <my-nav></my-nav>
+    </header>
 
-<div class="intro">
-<!--
-		<div id="Note">
-			<marquee directories="left"><font size="3"><strong>公告 [20200122]：第三版 v3.1 beta（Django版）开发暂停，当前 v2.2 版本继续沿用 v2.1 的框架并修改了部分css样式。 【20190721]：测试时发现电脑端的gitment评论出现异常，暂未维护，评论请发送至bingjiaiqn@foxmail.com。</strong></font></marquee>
-		</div>
--->
-		<div class="intro_box" style="width: 50%; position: relative; top: -3em;"><br><h2>浮光掠影</h2><p>浮光随日度，漾影逐波深。<div align="right">——《临高赋》褚亮</div></p></div>
-		<div class="intro_box" style="width: 50%; position: relative; top: -3em"></div>
-	</div>
+    <div class="Intro">
+        <!-- 欢迎语 -->
+        <div class="IntroBox" style="position: relative; top: -1em">
+            <h2>浮光掠影</h2><p>浮光随日度，漾影逐波深。<div align="right">——《临高赋》褚亮</div></p>
+        </div>
+
+        <div class="IntroBox" id="picture" style="position: relative; top: -3em">
+        </div>
+    </div>
+
+    <div class="clear"></div>
 	
 	<hr>
-	
-	<div class="content">
-		<div class="m_box" align="center">
-			<div class="m_box_m"><h2>谁先爱上他的</h2><p>我可以改啊，可以学啊，然后我就会很快乐啊······<br><a href="fgly/sxastd.html">more</a><br><a href="fgly/dy.html" target="new" class="a_tag"><font size="-1">[电影]</font></a></p></div>
-			<div class="m_box_m"><h2>1Q84</h2><p>对我来说，至关重要的，是自己从心底深深地渴求他的事实。<br><a href="fgly/1q84.html">more</a><br><a href="fgly/xs.html" target="new" class="a_tag"><font size="-1">[小说]</font></a></p></div>
-			<div class="m_box_m"><h2>写给黄淮</h2><p>你是我患得患失的梦，我是你可有可无的人。<br><a href="fgly/xghh.html">more</a><br><a href="fgly/yy.html" target="new" class="a_tag"><font size="-1">[音乐]</font></a></p></div>
-			<div class="m_box_m"><h2>新喜剧之王</h2><p>你不用等，永远都不会有机会。永远不会，直到宇宙灭亡。<br><a href="fgly/xxjzw.html">more</a><br><a href="fgly/dy.html" target="new" class="a_tag"><font size="-1">[电影]</font></a></p></div>
-			<div class="m_box_m"><h2>夏目友人帐-缘结空蝉</h2><p>人世命运，宛如河流，轻轻的一点涟漪就能被彻底改变。我想开心与否，谁都不想忘记那一份思念。<br><a href="fgly/yjkc.html">more</a><br><a href="fgly/dy.html" target="new" class="a_tag"><font size="-1">[电影]</font></a></p></div>
-			<div class="m_box_m"><h2>波西米亚狂想曲</h2><p>Mama, life had just begun. But now I've gone and thrown it all away.<br><a href="fgly/bxmykxq.html">more</a><br><a href="fgly/dy.html" target="new" class="a_tag"><font size="-1">[电影]</font></a></p></div>
-			<div class="m_box_m"><h2>送我上青云</h2><p>好风凭借力，送我上青云。<br><a href="fgly/swsqy.html">more</a><br><a href="fgly/dy.html" target="new" class="a_tag"><font size="-1">[电影]</font></a></p></div>
-			<div class="m_box_m"><h2>自我定位</h2><p>他们并不是通过大数据了解到你是怎样的人，而是想让你成为怎样的人。<br><a href="fgly/suigan1.html">more</a><br><a href="fgly/sg.html" target="new" class="a_tag"><font size="-1">[随感]</font></a></p></div>
-			<div class="m_box_m"><h2>盖棺定论</h2><p>他死了，以一种及其羞耻的方式死去，就连死亡原因也极其龌龊。<br><a href="fgly/suigan2.html">more</a><br><a href="fgly/sg.html" target="new" class="a_tag"><font size="-1">[随感]</font></a></p></div>
+
+	<div class="Content" id="fgly">
+		<div class="ListBox" align="center">
+			<span  v-for="(item, index) in items">
+				<div class="ItemBox" v-if="index >= 9*(pageNum-1) && index < 9*pageNum">
+					<h3>{{ item.title }}</h3>
+					<p>{{ item.intro }}<div><a v-bind:href="item.href">more</a><br><font size="-1"><span v-for="type in types"><span v-if="type.type==item.type"><a v-bind:href="type.href">[{{ type.type }}]</a></span></span></font></div></p>
+				</div>
+			</span>
+		</div>
+		<div align="right">
+			<table><tbody>
+				<tr align="center">
+					<td width="50em"><button v-if="pageNum!=1" v-on:click="pageNum -= 1">👈</button><button v-else>👈</button></td>
+					<td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+Math.ceil(items.length / 9)+') {value = 2}'" style="width: 2em; text-align: center;"> / {{ Math.ceil(items.length / 9) }}</td>
+					<td width="50em"><button v-if="pageNum!=Math.ceil(items.length / 9)" v-on:click="pageNum += 1">👉</button><button v-else>👉</button></td>
+				</tr>
+			</tbody></table>
+			
 		</div>
 	</div>
 
-	<hr>
-
+    <hr>
 
     <div class="Subscribe" id="subscribe">
         <div class="Subscribe_box_l">
@@ -55,99 +63,122 @@
                     </ul>
         </div>
         <div class="Subscribe_box_r" align="right">
-        	<table style="margin-top: 6em"><tbody><tr>
-    			<td></td>
-    			<td>
-    				<table cellpadding="0em" cellspacing="0px" border="0px"><tbody>
-    					<tr height="330">
-    						<td bgcolor="#F0F0F0" style="padding-left: 2em; padding-top: 0em">
-    							<table style="word-wrap:break-word;word-break:break-all;background-color: #ffffff" border="1px"><tbody>
-    								<tr>
-									<td>
-										<div style="width: 11em;height: 11em"><div style="font-size: 0.7em">
-											【Bing16】订阅重要动态<hr>
-											<div style="margin-left: 0.5em">
-												用户名：{{userName}}<br>
-												邮箱：{{userEmail}}<br><br>
-												订阅主题：<br>
-												<span v-for="(content,index) in contents" v-if="index!=contents.length-1">{{content}},
-												</span><span v-for="(content,index) in contents" v-if="index==contents.length-1">{{content}}</span>
-											</div>
-										</div></div>
-									</td>
-								</tr></tbody></table>
-							</td>
-    						<td bgcolor="#F0F0F0" style="padding-right: 2.5em; padding-left: 2em; padding-top: 2em">
-    							<div style="width: 12em">
-    							<p align="left">Name<br><input type="text" placeholder="在这里输入名字喔！" v-model="userName" style="width: 15em"></p>
-    							<p align="left">Email<br><input type="text" placeholder="在这里输入邮箱喔！" v-model="userEmail" maxlength="50" style="width: 15em"></p>
-    							<p style="font-size: 0.6em">
-        							<input type="checkbox" id="乌有之乡" value="乌有之乡" v-model="contents"/>
-									<label for="jack">乌有之乡</label>
-									<input type="checkbox" id="随思乱想" value="随思乱想" v-model="contents"/>
-									<label for="john">随思乱想</label>
-									<input type="checkbox" id="浮光掠影" value="浮光掠影" v-model="contents"/>
-									<label for="mike">浮光掠影</label>
-								</p>
-								<p align="right">
-									<a v-bind:href="href+'用户名：'+userName+'%0d%0a'+'邮    箱：'+userEmail+'%0d%0a%0d%0a'+'订阅主题：'+'%0d%0a'+contents+'%0d%0a'+'%0d%0a'"><button style="color: #ff5959">提交</button></a>
-								</p>
-    							</div>
-    						</td>
-    					</tr>
-    				</tbody></table>
-        		</td>
-        	</tr></tbody></table>
-		</div>
+            <table style="margin-top: 6em"><tbody><tr>
+                <td></td>
+                <td>
+                    <table cellpadding="0em" cellspacing="0px" border="0px"><tbody>
+                        <tr height="330">
+                            <td bgcolor="#F0F0F0" style="padding-left: 2em; padding-top: 0em">
+                                <table style="word-wrap:break-word;word-break:break-all;background-color: #ffffff" border="1px"><tbody>
+                                    <tr>
+                                    <td>
+                                        <div style="width: 11em;height: 11em"><div style="font-size: 0.7em">
+                                            【Bing16】订阅重要动态<hr>
+                                            <div style="margin-left: 0.5em">
+                                                用户名：{{userName}}<br>
+                                                邮箱：{{userEmail}}<br><br>
+                                                订阅主题：<br>
+                                                <span v-for="(content,index) in contents" v-if="index!=contents.length-1">{{content}},
+                                                </span><span v-for="(content,index) in contents" v-if="index==contents.length-1">{{content}}</span>
+                                            </div>
+                                        </div></div>
+                                    </td>
+                                </tr></tbody></table>
+                            </td>
+                            <td bgcolor="#F0F0F0" style="padding-right: 2.5em; padding-left: 2em; padding-top: 2em">
+                                <div style="width: 12em">
+                                <p align="left">Name<br><input type="text" placeholder="在这里输入名字喔！" v-model="userName" style="width: 15em"></p>
+                                <p align="left">Email<br><input type="text" placeholder="在这里输入邮箱喔！" v-model="userEmail" maxlength="50" style="width: 15em"></p>
+                                <p style="font-size: 0.6em">
+                                    <input type="checkbox" id="乌有之乡" value="乌有之乡" v-model="contents"/>
+                                    <label for="jack">乌有之乡</label>
+                                    <input type="checkbox" id="随思乱想" value="随思乱想" v-model="contents"/>
+                                    <label for="john">随思乱想</label>
+                                    <input type="checkbox" id="浮光掠影" value="浮光掠影" v-model="contents"/>
+                                    <label for="mike">浮光掠影</label>
+                                </p>
+                                <p align="right">
+                                    <a v-bind:href="href+'用户名：'+userName+'%0d%0a'+'邮    箱：'+userEmail+'%0d%0a%0d%0a'+'订阅主题：'+'%0d%0a'+contents+'%0d%0a'+'%0d%0a'"><button style="color: #ff5959">提交</button></a>
+                                </p>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr></tbody></table>
+        </div>
     </div>
-
-    <div class="clear"></div>
 
     <hr>
 
-	<!-- Footer -->
-	<Footer id="navFoot">
-		<my-nav></my-nav>
-	</Footer>
-	<div align="right"><div align="right" style="font-size: 0.9em; margin-top: -1em; margin-bottom: 1em; color:#AAA; width: 500px">© 2018-2020 <a href="https://bingjiaqin.github.io" style="color: #AAA">Bing16</a>. All rights reserved. <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1276882696'%3E%3C/span%3E%3Cscript src='https://s23.cnzz.com/z_stat.php%3Fid%3D1276882696%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></div>
+    <!-- Footer -->
+    <Footer id="navFoot">
+        <my-nav></my-nav>
+    </Footer>
+    <div align="right"><div align="right" style="font-size: 0.9em; margin-top: -1em; margin-bottom: 1em; color:#AAA; width: 500px">© 2018-2020 <a href="https://bingjiaqin.github.io" style="color: #AAA">Bing16</a>. All rights reserved. <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1276882696'%3E%3C/span%3E%3Cscript src='https://s23.cnzz.com/z_stat.php%3Fid%3D1276882696%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></div>
 </body>
 
+
 <script type="text/JavaScript">
-	pageTitle = "浮光掠影"
+    pageTitle = "浮光掠影"
 
-	Vue.component("my-nav", {
-		data: function() {
-			return {
-				navs: [
-				{ title: "主页", style: {width: "72px"}, href: "index.html"},
-				{ title: "乌有之乡", style: {width: "100px"}, href: "wyzx.html"},
-				{ title: "随思乱想", style: {width: "100px"}, href: "sslx.html"},
-				{ title: "浮光掠影", style: {width: "100px"}, href: "fgly.html"},
-				{ title: "|", style: {width: "20px"}},
-				{ title: "关于我", style: {width: "70px"}, href: "about.html"}
-				]
-			}
-		},
-		template: '<div><div class="NavLeft"><div class="NavLogo"><img src="images/logo.jpg" width="40px" height="40px"></div><div class="NavName">Bing16</div></div><div class="NavRight"><ul><li class="NavList" v-for="nav in navs" v-bind:style="nav.style"><a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a></li><li class="NavList" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 5px"></a></li></ul></div><div class="clear"></div></div>'
-	})
+    Vue.component("my-nav", {
+        data: function() {
+            return {
+                navs: [
+                { title: "主页", style: {width: "72px"}, href: "index.html"},
+                { title: "乌有之乡", style: {width: "100px"}, href: "wyzx.html"},
+                { title: "随思乱想", style: {width: "100px"}, href: "sslx.html"},
+                { title: "浮光掠影", style: {width: "100px"}, href: "fgly.html"},
+                { title: "|", style: {width: "20px"}},
+                { title: "关于我", style: {width: "70px"}, href: "about.html"}
+                ]
+            }
+        },
+        template: '<div><div class="NavLeft"><div class="NavLogo"><img src="images/logo.jpg" width="40px" height="40px"></div><div class="NavName">Bing16</div></div><div class="NavRight"><ul><li class="NavList" v-for="nav in navs" v-bind:style="nav.style"><a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a></li><li class="NavList" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 5px"></a></li></ul></div><div class="clear"></div></div>'
+    })
 
-	var appNav = new Vue({
-		el: "#navHead"
-	})
+    var appNav = new Vue({
+        el: "#navHead"
+    })
 
-	var appNav = new Vue({
-		el: "#navFoot"
-	})
+    var appNav = new Vue({
+        el: "#navFoot"
+    })
 
-	var appSubscribe = new Vue({
-		el: "#subscribe",
-		data: {
-			userName: "",
-			userEmail: "",
-			contents: ["乌有之乡","随思乱想","浮光掠影"],
-			href: "mailto:bingjiaqin@foxmail.com?subject=【Bing16】订阅重要动态&body="
-		}
-	})
+    var appSubscribe = new Vue({
+        el: "#subscribe",
+        data: {
+            userName: "",
+            userEmail: "",
+            contents: ["乌有之乡","随思乱想","浮光掠影"],
+            href: "mailto:bingjiaqin@foxmail.com?subject=【Bing16】订阅重要动态&body="
+        }
+    })
+
+   var wyzx = new Vue({
+        el: "#fgly",
+        data:{
+        	pageNum: 1,
+            items: [
+            {title: "谁先爱上他的", intro: "我可以改啊，可以学啊，然后我就会很快乐啊······", href: "fgly/sxastd.html", type: "电影"},
+            {title: "1Q84", intro: "对我来说，至关重要的，是自己从心底深深地渴求他的事实。", href: "fgly/1q84.html", type: "小说"},
+            {title: "写给黄淮", intro: "你是我患得患失的梦，我是你可有可无的人。", href: "fgly/xghh.html", type: "音乐"},
+            {title: "新喜剧之王", intro: "你不用等，永远都不会有机会。永远不会，直到宇宙灭亡。", href: "fgly/xxjzw.html", type: "电影"},
+            {title: "夏目友人帐-缘结空蝉", intro: "人世命运，宛如河流，轻轻的一点涟漪就能被彻底改变。我想开心与否，谁都不想忘记那一份思念。", href: "fgly/yjkc.html", type: "电影"},
+            {title: "波西米亚狂想曲", intro: "Mama, life had just begun. But now I've gone and thrown it all away.", href: "fgly/bxmykxq.html", type: "电影"},
+            {title: "送我上青云", intro: "好风凭借力，送我上青云。", href: "fgly/swsqy.html", type: "电影"},
+            {title: "自我定位", intro: "他们并不是通过大数据了解到你是怎样的人，而是想让你成为怎样的人。", href: "fgly/suigan1.html", type: "随感"},
+            {title: "盖棺定论", intro: "他死了，以一种及其羞耻的方式死去，就连死亡原因也极其龌龊。", href: "fgly/suigan2.html", type: "随感"},
+            ],
+            types: [
+            {type: "电影", href: "fgly/dy.html"},
+            {type: "小说", href: "fgly/xs.html"},
+            {type: "音乐", href: "fgly/yy.html"},
+            {type: "随感", href: "fgly/sg.html"},
+            ]
+        }
+    })
 
 </script>
 </html>
