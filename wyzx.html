@@ -22,55 +22,57 @@
         </div>
 
         <div class="IntroBox" id="picture" style="position: relative; top: -3em">
-        	<table width="100%"><tbody><tr><td></td><td width="450em"><table border="0">
-				  <tbody>
-				    <tr height="100">
-						  <td colspan="3" align="center" width="450em">搜索：<input type="search" title="Ctrl+F可搜索本页内容" value="此处尚未施工完成喔~">&emsp;<input type="submit" title="提交" value="OK"></td>
-					  </tr>
-				    <tr>
-				      <td width="150em"><a href="wyzx/Machine.html" target="new"><img src="images/1/Machine.png" width="150em"></a></td>
-				      <td width="150em"><a href="wyzx/Art.html" target="new"><img src="images/1/Art.png" width="150em"></a></td>
-				      <td width="150em"><a href="wyzx/Python.html" target="new"><img src="images/1/Python.png" width="150em"></a></td>
-			        </tr>
-				    <tr>
-				      <td><a href="wyzx/CPP.html" target="new"><img src="images/1/CPP.png" width="150em"></a></td>
-				      <td><a href="wyzx/RPI.html" target="new"><img src="images/1/RPI.png" width="150em"></a></td>
-				      <td><a href="wyzx/Arduino.html" class="a_tag" target="new"><img src="images/1/Arduino.png" width="150em"></a></td>
-			        </tr>
-				    <tr>
-				      <td><a href="wyzx/Ubuntu.html" target="new"><img src="images/1/Ubuntu.png" width="150em"></a></td>
-				      <td><a href="wyzx/ROS.html" target="new"><img src="images/1/ROS.png" width="150em"></a></td>
-				      <td></td>
-			        </tr>
-			      </tbody>
-			</table></td></tr></tbody></table>
+            <table width="100%"><tbody><tr><td></td><td width="450em"><table border="0">
+                  <tbody>
+                    <tr height="100">
+                          <td colspan="3" align="center" width="450em">搜索：<input type="search" title="Ctrl+F可搜索本页内容" value="此处尚未施工完成喔~">&emsp;<input type="submit" title="提交" value="OK"></td>
+                      </tr>
+                    <tr>
+                      <td width="150em"><a href="wyzx/Machine.html" target="new"><img src="images/1/Machine.png" width="150em"></a></td>
+                      <td width="150em"><a href="wyzx/Art.html" target="new"><img src="images/1/Art.png" width="150em"></a></td>
+                      <td width="150em"><a href="wyzx/Python.html" target="new"><img src="images/1/Python.png" width="150em"></a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="wyzx/CPP.html" target="new"><img src="images/1/CPP.png" width="150em"></a></td>
+                      <td><a href="wyzx/RPI.html" target="new"><img src="images/1/RPI.png" width="150em"></a></td>
+                      <td><a href="wyzx/Arduino.html" class="a_tag" target="new"><img src="images/1/Arduino.png" width="150em"></a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="wyzx/Ubuntu.html" target="new"><img src="images/1/Ubuntu.png" width="150em"></a></td>
+                      <td><a href="wyzx/ROS.html" target="new"><img src="images/1/ROS.png" width="150em"></a></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+            </table></td></tr></tbody></table>
         </div>
     </div>
 
     <div class="clear"></div>
-	
-	<hr>
+    
+    <hr>
 
-	<div class="Content" id="wyzx">
-		<div class="ListBox" align="center">
-			<span  v-for="(item, index) in items">
-				<div class="ItemBox" v-if="index >= 9*(pageNum-1) && index < 9*pageNum">
-					<h3>{{ item.title }}</h3>
-					<p>{{ item.intro }}<div><a v-bind:href="item.href">more</a></div></p>
-				</div>
-			</span>
-		</div>
-		<div align="right">
-			<table><tbody>
-				<tr align="center">
-					<td width="50em"><button v-if="pageNum!=1" v-on:click="pageNum -= 1">👈</button><button v-else>👈</button></td>
-					<td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+Math.ceil(items.length / 9)+') {value = 2}'" style="width: 2em; text-align: center;"> / {{ Math.ceil(items.length / 9) }}</td>
-					<td width="50em"><button v-if="pageNum!=Math.ceil(items.length / 9)" v-on:click="pageNum += 1">👉</button><button v-else>👉</button></td>
-				</tr>
-			</tbody></table>
-			
-		</div>
-	</div>
+    <div id="wyzx">
+        <div class="Content">
+            <div class="ListBox" align="center">
+                <span  v-for="(item, index) in items">
+                    <div class="ItemBox" v-if="index >= 9*(pageNum-1) && index < 9*pageNum">
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.intro }}<div><a v-bind:href="item.href">more</a></div></p>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <div align="right">
+            <table><tbody>
+                <tr align="center">
+                    <td width="50em"><button v-if="pageNum!=1" v-on:click="pageNum -= 1">←</button><button v-else>←</button></td>
+                    <td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+Math.ceil(items.length / 9)+') {value = Math.ceil(items.length / 9)}'" style="width: 2em; text-align: center; font-size: 0.9em"> / {{ Math.ceil(items.length / 9) }}</td>
+                    <td width="50em"><button v-if="pageNum!=Math.ceil(items.length / 9)" v-on:click="pageNum += 1">→</button><button v-else>→</button></td>
+                </tr>
+            </tbody></table>
+            
+        </div>
+    </div>
 
     <hr>
 
@@ -181,7 +183,7 @@
    var wyzx = new Vue({
         el: "#wyzx",
         data:{
-        	pageNum: 1,
+            pageNum: 1,
             items: [
             {title: "基于XY双轴移动LED的图片再现装置", intro: "个人的智能硬件与智能系统小组项目。目前第二版封装完毕。", href: "wyzx/ClassProject.html"},
             {title: "MyRPI", intro: "个人的树莓派尝试。因为摄像头原因搁置中。。。", href: "wyzx/MyRPi.html"},

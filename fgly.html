@@ -26,29 +26,30 @@
     </div>
 
     <div class="clear"></div>
-	
-	<hr>
+    
+    <hr>
 
-	<div class="Content" id="fgly">
-		<div class="ListBox" align="center">
-			<span  v-for="(item, index) in items">
-				<div class="ItemBox" v-if="index >= 9*(pageNum-1) && index < 9*pageNum">
-					<h3>{{ item.title }}</h3>
-					<p>{{ item.intro }}<div><a v-bind:href="item.href">more</a><br><font size="-1"><span v-for="type in types"><span v-if="type.type==item.type"><a v-bind:href="type.href">[{{ type.type }}]</a></span></span></font></div></p>
-				</div>
-			</span>
-		</div>
-		<div align="right">
-			<table><tbody>
-				<tr align="center">
-					<td width="50em"><button v-if="pageNum!=1" v-on:click="pageNum -= 1">👈</button><button v-else>👈</button></td>
-					<td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+Math.ceil(items.length / 9)+') {value = 2}'" style="width: 2em; text-align: center;"> / {{ Math.ceil(items.length / 9) }}</td>
-					<td width="50em"><button v-if="pageNum!=Math.ceil(items.length / 9)" v-on:click="pageNum += 1">👉</button><button v-else>👉</button></td>
-				</tr>
-			</tbody></table>
-			
-		</div>
-	</div>
+    <div id="fgly">
+        <div class="Content">
+            <div class="ListBox" align="center">
+                <span  v-for="(item, index) in items">
+                    <div class="ItemBox" v-if="index >= 9*(pageNum-1) && index < 9*pageNum">
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.intro }}<div><a v-bind:href="item.href">more</a><br><font size="-1"><span v-for="type in types"><span v-if="type.type==item.type"><a v-bind:href="type.href">[{{ type.type }}]</a></span></span></font></div></p>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <div align="right">
+            <table><tbody>
+                <tr align="center">
+                    <td width="50em"><button v-if="pageNum!=1" v-on:click="pageNum -= 1">←</button><button v-else>←</button></td>
+                    <td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+Math.ceil(items.length / 9)+') {value = Math.ceil(items.length / 9)}'" style="width: 2em; text-align: center; font-size: 0.9em"> / {{ Math.ceil(items.length / 9) }}</td>
+                    <td width="50em"><button v-if="pageNum!=Math.ceil(items.length / 9)" v-on:click="pageNum += 1">→</button><button v-else>→</button></td>
+                </tr>
+            </tbody></table>
+        </div>
+    </div>
 
     <hr>
 
@@ -159,7 +160,7 @@
    var wyzx = new Vue({
         el: "#fgly",
         data:{
-        	pageNum: 1,
+            pageNum: 1,
             items: [
             {title: "谁先爱上他的", intro: "我可以改啊，可以学啊，然后我就会很快乐啊······", href: "fgly/sxastd.html", type: "电影"},
             {title: "1Q84", intro: "对我来说，至关重要的，是自己从心底深深地渴求他的事实。", href: "fgly/1q84.html", type: "小说"},
