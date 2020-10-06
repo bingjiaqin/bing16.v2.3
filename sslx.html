@@ -29,6 +29,7 @@
                     <td width="50em"><button v-if="pageNum!=1" v-on:click="pageNum -= 1">←</button><button v-else>←</button></td>
                     <td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+items.length+') {value = items.length}'" style="width: 2em; text-align: center; font-size: 1em"> / {{ items.length }}</td>
                     <td width="50em"><button v-if="pageNum!=items.length" v-on:click="pageNum += 1">→</button><button v-else>→</button></td>
+                    <td><a href="sslx/History.html">history</a></td>
                 </tr>
             </tbody></table>
         </div>
@@ -55,6 +56,7 @@
                     <td width="50em"><button v-if="pageNum!=1" v-on:click="pageNum -= 1">←</button><button v-else>←</button></td>
                     <td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+items.length+') {value = items.length}'" style="width: 2em; text-align: center; font-size: 1em"> / {{ items.length }}</td>
                     <td width="50em"><button v-if="pageNum!=items.length" v-on:click="pageNum += 1">→</button><button v-else>→</button></td>
+                    <td><a href="sslx/History.html">history</a></td>
                 </tr>
             </tbody></table>
             
@@ -434,8 +436,6 @@
                 lists: [
                 {content: "&emsp;&emsp;今天没有你的消息。", time: "2020-07-19 22:27"},
                 {content: "&emsp;&emsp;没在工作的时候总会觉得寂寞。", time: "2020-09-05 17:08"},
-                {content: "&emsp;&emsp;不以物喜，不以己悲。<br>&emsp;&emsp; <br>", time: "2020-09-17 21:50"},
-                {content: "&emsp;&emsp;从此做一个不骄不躁的奋进者。<br>&emsp;&emsp; <br>", time: "2020-09-17 23:22"},
                 ]
             },
             ]
@@ -444,4 +444,4 @@
 
 </script>
 </html>
-<!--438-->
+<!--436-->
