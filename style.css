@@ -186,15 +186,15 @@ button {
 }
 
 .ListBox{
+	width: 100%;
 	margin:0 auto;
-	align-items: center;
-	display: flex;
+	align-items: left;
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
 
 .ItemBox {
-	width: 17em;
+	width: 100%;
 	min-height: 13em;
 	word-wrap: break-word;
 	padding: 0.5em;
@@ -202,7 +202,7 @@ button {
 }
 
 .Content{
-	margin: 3em 1em;
+	margin: 3em 0em;
 }
 
 input::-webkit-outer-spin-button,

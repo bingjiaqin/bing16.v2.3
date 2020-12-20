@@ -53,9 +53,9 @@
 
     <div id="wyzx">
         <div class="Content">
-            <div class="ListBox" align="center">
+            <div class="ListBox">
                 <span  v-for="(item, index) in items">
-                    <div class="ItemBox" v-if="index >= 9*(pageNum-1) && index < 9*pageNum">
+                    <div class="ItemBox" v-if="index >= 10*(pageNum-1) && index < 10*pageNum">
                         <h3>{{ item.title }}</h3>
                         <p>{{ item.intro }}<div><a v-bind:href="item.href">more</a></div></p>
                     </div>
@@ -66,8 +66,8 @@
             <table><tbody>
                 <tr align="center">
                     <td width="50em"><button v-if="pageNum!=1" v-on:click="pageNum -= 1">←</button><button v-else>←</button></td>
-                    <td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+Math.ceil(items.length / 9)+') {value = Math.ceil(items.length / 9)}'" style="width: 2em; text-align: center; font-size: 0.9em"> / {{ Math.ceil(items.length / 9) }}</td>
-                    <td width="50em"><button v-if="pageNum!=Math.ceil(items.length / 9)" v-on:click="pageNum += 1">→</button><button v-else>→</button></td>
+                    <td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+Math.ceil(items.length / 10)+') {value = Math.ceil(items.length / 10)}'" style="width: 2em; text-align: center; font-size: 0.9em"> / {{ Math.ceil(items.length / 10) }}</td>
+                    <td width="50em"><button v-if="pageNum!=Math.ceil(items.length / 10)" v-on:click="pageNum += 1">→</button><button v-else>→</button></td>
                 </tr>
             </tbody></table>
             
