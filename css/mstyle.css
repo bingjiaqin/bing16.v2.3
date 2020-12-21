@@ -1,0 +1,220 @@
+.divcss5-x2{ padding-bottom:3px; border-bottom:2px solid}
+.divcss5-x2-r{ padding-bottom:3px; border-bottom:5px solid #FFE0E0}
+.divcss5-x2-b{ padding-bottom:3px; border-bottom:5px solid #D4E7E9}
+.divcss5-x2-y{ padding-bottom:3px; border-bottom:5px solid #FCF3D8}
+.rcolor{color: #ff5959}
+
+body{
+	width: 70%;
+	max-width: 65em;
+	min-width: 40em;
+	padding: 1em 5em;
+	margin: auto;
+	line-height: 1.75;
+	color: #555;
+	font-size: 1.125em;
+/*
+        -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+*/
+}
+
+header,
+footer {
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding: 1.5vw 0em;
+	font-size: 1em;
+}
+
+header a,
+footer a {
+	color: #555;
+}
+
+h1,
+h2,
+strong {
+	color: #233142;
+}
+
+h2 {
+	margin-top: 1em;
+}
+
+code,
+pre,
+xmp {
+	background: #ffffff;
+	border-bottom: 0.01em solid #d8dee9;
+	color: #a7adba;
+}
+
+code {
+	padding: 1em 2em;
+	vertical-align: text-bottom;
+}
+
+pre,
+xmp {
+	padding: 1em;
+	border-left: 0.1em solid #4f9da6;
+}
+
+hr {
+	border: 0.05em solid #F0F0F0;
+}
+
+a {
+	color: #ff5959;
+	text-decoration: none;
+}
+
+button {
+	 background-color: #ffffff;
+	 border: none;
+	 position: relative;
+	 top: -0.2em;
+}
+
+.clear{ clear:both}
+
+.NavLeft {
+    float: left;
+    color: #555555;
+}
+
+.NavRight {
+    float: right;
+    color: #555555;
+    text-align: right;
+}
+
+.NavLogo {
+    float: left;
+    margin-top: 12px;
+}
+
+.NavName {
+    float: right;
+    margin-left: 15px;
+    margin-top: 18px;
+}
+
+.NavList {
+    float: left;
+    list-style: none;
+}
+
+.Ad {
+	z-index: 9999;
+	position:
+	fixed ! important;
+	right: 3%;
+	bottom: 30px;
+}
+
+.Intro {
+	min-height: 27em;
+	padding-top: 3em;
+	padding-bottom: 4em;
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.IntroBox {
+	max-width: 24em;
+	min-height: 13em;
+	width: 50%;
+	word-wrap: break-word;
+	padding: 0.5em;
+	margin: 0.5em;
+}
+
+.Menu {
+	align-items: center;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+
+.MenuBox {
+	width: 15em;
+	min-height: 11em;
+	word-wrap: break-word;
+	padding: 0.5em;
+	margin: 0.5em;
+}
+
+.    {
+	margin-top: 3em;
+	margin-bottom: 5em;
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+.Subscribe {
+	min-height: 24em;
+	padding-right: 0;
+	padding-left: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	margin-bottom: 4em;
+}
+
+.Subscribe_box_l {
+	padding-top: 7em;
+	width: 40%;
+	min-width: 20em;
+	word-wrap: break-word;
+	text-align: left;
+	margin-bottom: 2em;
+}
+
+.Subscribe_box_r {
+	padding-top: 1em;
+	word-wrap: break-word;
+	width: 60%;
+	min-width: 30em;
+	margin-top: -2em;
+}
+
+.ListBox{
+	width: 100%;
+	margin:0 auto;
+	align-items: left;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.ItemBox {
+	width: 100%;
+	min-height: 13em;
+	word-wrap: break-word;
+	padding: 0.5em;
+	margin: 0.5em;
+}
+
+.Content{
+	margin:0 auto;
+	margin-bottom: 3em;
+	width: 60%;
+	min-width: 30em;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}

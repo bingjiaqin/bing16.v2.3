@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title>Bing16/随思乱想</title>
-<link href="style.css" rel="stylesheet" type="text/css">
+ <link rel="stylesheet" type="text/css" href="css/style.css" media="screen and (min-width:1286px)"/>
+<link rel="stylesheet" type="text/css" href="css/mstyle.css" media="screen and (max-width:1285px)"/>
 <link rel="stylesheet" href="csslider.css" />
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" media="screen"/>
 <script src="https://cdn.bootcss.com/vue/2.5.20/vue.min.js"></script>
@@ -39,7 +40,7 @@
         <div class="Content">
             <span v-for="(item, index) in items">
                 <span v-if="index+1==pageNum">
-                    <h2 id="content">{{ item.h2 }}</h2>
+                    <h2 id="Content">{{ item.h2 }}</h2>
                     <h3>{{ item.h3 }}</h3>
                     <span v-for="list in item.lists">
                         <p><img v-bind:src="list.pic" width="300px" style="padding-left: 2em" /></p>
@@ -448,4 +449,4 @@
 
 </script>
 </html>
-<!--442-->
+<!--443-->
