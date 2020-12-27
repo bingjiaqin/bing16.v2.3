@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title>Bing16</title>
-<link rel="stylesheet" type="text/css" href="css/style.css" media="screen and (min-width:1286px)"/>
-<link rel="stylesheet" type="text/css" href="css/mstyle.css" media="screen and (max-width:1285px)"/>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen and (min-width:600px)"/>
+<link rel="stylesheet" type="text/css" href="css/mstyle.css" media="screen and (max-width:600px)"/>
 <link rel="stylesheet" href="css/csslider.css" />
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" media="screen"/>
 <script src="https://cdn.bootcss.com/vue/2.5.20/vue.min.js"></script>
@@ -32,36 +32,30 @@
             <p>如果你从别的地方找到这里，<span class="divcss5-x2-r">欢迎联系我</span>。</p>
         </div>
 
+        <div class="IntroBoxBreak"></div>
+
         <!-- 照片 -->
-        <div class="IntroBox" id="picture"><table width="80%"><tbody><tr><td>
-            <div style="padding: 1em 0;">
-                <div class="csslider">
-                    <input type="radio" name="slides" v-for="picture in pictures" v-if="picture.radioId=='slides_1'" v-bind:id="picture.radioId" checked/>
-                    <input type="radio" name="slides" v-for="picture in pictures" v-if="picture.radioId!='slides_1'" v-bind:id="picture.radioId"/>
-                    <ul>
-                        <li v-for="picture in pictures">
-                            <img v-bind:src="picture.src" v-bind:title="picture.title" width="100%">
-                        </li>
-                    </ul>
-                    <div class="arrows">
-                        <label v-for="picture in pictures" v-bind:for="picture.radioId"></label>
-                    </div>
-                    <div class="navigation">
-                        <label v-for="picture in pictures" v-bind:for="picture.radioId"></label>
-                    </div>
+        <div class="IntroBox" id="picture"><table width="100%"><tbody><tr><td>
+            <div class="csslider">
+                <input type="radio" name="slides" v-for="picture in pictures" v-if="picture.radioId=='slides_1'" v-bind:id="picture.radioId" checked/>
+                <input type="radio" name="slides" v-for="picture in pictures" v-if="picture.radioId!='slides_1'" v-bind:id="picture.radioId"/>
+                <ul>
+                    <li v-for="picture in pictures">
+                        <img v-bind:src="picture.src" v-bind:title="picture.title" width="100%">
+                    </li>
+                </ul>
+                <div class="arrows">
+                    <label v-for="picture in pictures" v-bind:for="picture.radioId"></label>
+                </div>
+                <div class="navigation">
+                    <label v-for="picture in pictures" v-bind:for="picture.radioId"></label>
                 </div>
             </div>
         </td></tr></tbody></table></div>
     </div>
 
     <div class="clear"></div>
-
-    <hr>
-
-    <div class="Menu" id="menu">
-        <div class="MenuBox" v-for="item in items"><h2>{{item.title}}</h2><p><div v-for="s in item.content">s</div><br><font size="-1">{{item.detail}}</font></p></div>
-    </div>
-
+    
     <hr>
 
     <div class="Content">
@@ -167,7 +161,7 @@
                 ]
             }
         },
-        template: '<div><div class="NavLeft"><div class="NavLogo"><img src="images/logo.jpg" width="40px" height="40px"></div><div class="NavName">Bing16</div></div><div class="NavRight"><ul><li class="NavList" v-for="nav in navs" v-bind:style="nav.style"><a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a></li><li class="NavList" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 5px"></a></li></ul></div><div class="clear"></div></div>'
+        template: '<div><div class="NavLeft"><div class="NavLogo"><img src="images/logo.jpg" width="40px" height="40px"></div><div class="NavName">Bing16</div></div><div class="NavRight"><ul><li class="NavList" v-for="nav in navs" v-bind:style="nav.style"><a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a></li><li class="NavList" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 3px"></a></li></ul></div><div class="clear"></div></div>'
     })
 
     var appNav = new Vue({

@@ -6,17 +6,10 @@
 
 body{
 	width: 70%;
-	max-width: 65em;
-	min-width: 40em;
-	padding: 1em 5em;
+	min-width: 930px;
+	max-width: 1080px;
 	margin: auto;
-	line-height: 1.75;
-	color: #555;
-	font-size: 1.125em;
-/*
-        -webkit-filter: grayscale(100%);
-	filter: grayscale(100%);
-*/
+	font-size: 18px;
 }
 
 header,
@@ -24,8 +17,7 @@ footer {
 	background-position: center top;
 	background-repeat: no-repeat;
 	background-size: cover;
-	padding: 1.5vw 0em;
-	font-size: 1em;
+	padding: 25px 0px;
 }
 
 header a,
@@ -40,7 +32,17 @@ strong {
 }
 
 h2 {
-	margin-top: 1em;
+}
+
+hr {
+	border: 1px solid #F0F0F0;
+	width: 100%;
+}
+
+
+a {
+	color: #ff5959;
+	text-decoration: none;
 }
 
 code,
@@ -62,20 +64,11 @@ xmp {
 	border-left: 0.1em solid #4f9da6;
 }
 
-hr {
-	border: 0.05em solid #F0F0F0;
-}
-
-a {
-	color: #ff5959;
-	text-decoration: none;
-}
-
 button {
-	 background-color: #ffffff;
-	 border: none;
-	 position: relative;
-	 top: -0.2em;
+	background-color: #ffffff;
+	border: none;
+	position: relative;
+	top: -2px;
 }
 
 .clear{ clear:both}
@@ -93,13 +86,13 @@ button {
 
 .NavLogo {
     float: left;
-    margin-top: 12px;
+    margin-top: 13px;
 }
 
 .NavName {
     float: right;
     margin-left: 15px;
-    margin-top: 18px;
+    margin-top: 24px;
 }
 
 .NavList {
@@ -116,73 +109,58 @@ button {
 }
 
 .Intro {
-	min-height: 27em;
-	padding-top: 3em;
-	padding-bottom: 4em;
+	min-height: 520px;
+	padding-top: 30px;
+	padding-bottom: 80px;
 	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+}
+
+.IntroMid {
+	min-height: 483px;
+	padding-top: 30px;
+	padding-bottom: 80px;
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .IntroBox {
-	max-width: 24em;
-	min-height: 13em;
-	width: 50%;
-	word-wrap: break-word;
-	padding: 0.5em;
-	margin: 0.5em;
+	width: 45%;
 }
 
-.Menu {
-	align-items: center;
-	text-align: center;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
+.IntroBoxBreak {
+	width: 8%;
 }
-
 
 .MenuBox {
-	width: 15em;
-	min-height: 11em;
-	word-wrap: break-word;
-	padding: 0.5em;
-	margin: 0.5em;
-}
-
-.    {
-	margin-top: 3em;
-	margin-bottom: 5em;
-	margin-left: 1em;
-	margin-right: 1em;
+	width: 150px;
+	margin-top: 20px;
+	margin-bottom: 30px;
 }
 
 .Subscribe {
-	min-height: 24em;
+	min-height: 450px;
 	padding-right: 0;
 	padding-left: 0;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	margin-bottom: 4em;
+	margin-bottom: 50px;
 }
 
 .Subscribe_box_l {
-	padding-top: 7em;
+	padding-top: 120px;
 	width: 40%;
-	min-width: 20em;
 	word-wrap: break-word;
 	text-align: left;
-	margin-bottom: 2em;
 }
 
 .Subscribe_box_r {
-	padding-top: 1em;
 	word-wrap: break-word;
 	width: 60%;
-	min-width: 30em;
-	margin-top: -2em;
+	margin-top: -30px;
 }
 
 .ListBox{
@@ -202,10 +180,14 @@ button {
 }
 
 .Content{
-	margin:0 auto;
-	margin-bottom: 3em;
-	width: 60%;
-	min-width: 30em;
+	margin-top: 60px;
+	margin-bottom: 100px;
+}
+
+.About{
+	padding-top: 50px;
+	padding-bottom: 100px;
+	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
