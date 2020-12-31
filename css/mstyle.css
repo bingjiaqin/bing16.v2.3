@@ -4,6 +4,8 @@
 .divcss5-x2-y{ padding-bottom:3px; border-bottom:5px solid #FCF3D8}
 .rcolor{color: #ff5959}
 
+html,body { -webkit-text-size-adjust:none;}
+
 body{
 	width: 70%;
 	min-width: 930px;
