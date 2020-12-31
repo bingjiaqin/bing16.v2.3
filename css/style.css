@@ -90,8 +90,6 @@ button {
 .NavLogo {
     float: left;
     margin-top: 13px;
-    width: 40px;
-    height: 40px;
 }
 
 .NavName {
@@ -103,12 +101,6 @@ button {
 .NavList {
     float: left;
     list-style: none;
-    width: 40px;
-}
-
-.smallLogo {
-	width: 19px;
-	height: 19px;
 }
 
 .Ad {

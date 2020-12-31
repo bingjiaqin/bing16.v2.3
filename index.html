@@ -161,7 +161,7 @@
                 ]
             }
         },
-        template: '<div><div class="NavLeft"><div class="NavLogo"><img src="images/logo.jpg" width="100%" height="100%"></div><div class="NavName">Bing16</div></div><div class="NavRight"><ul><li class="NavList" v-for="nav in navs" v-bind:style="nav.style"><a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a></li><li class="NavList"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" class="smallLogo" style="margin-top: 3px"></a></li></ul></div><div class="clear"></div></div>'
+        template: '<div><div class="NavLeft"><div class="NavLogo"><img src="images/logo.jpg" width="40px" height="40px"></div><div class="NavName">Bing16</div></div><div class="NavRight"><ul><li class="NavList" v-for="nav in navs" v-bind:style="nav.style"><a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a></li><li class="NavList" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 3px"></a></li></ul></div><div class="clear"></div></div>'
     })
 
     var appNav = new Vue({

@@ -6,7 +6,7 @@
 
 body{
 	width: 70%;
-	min-width: 600px;
+	min-width: 930px;
 	max-width: 1080px;
 	padding-left: 100px;
 	padding-right: 100px;
@@ -14,8 +14,6 @@ body{
 	font-size: 18px;
 	-webkit-text-size-adjust: none;
 }
-
-
 
 header,
 footer {
@@ -76,32 +74,22 @@ button {
 	top: -2px;
 }
 
-h2 {
-	text-align: center;
-}
-
 .clear{ clear:both}
 
 .NavLeft {
-    float: center;
+    float: left;
     color: #555555;
 }
 
 .NavRight {
-	width: 100%;
-	clear: both;
-    float: center;
+    float: right;
     color: #555555;
-    text-align: center;
-    position: relative;
-    top: -32px;
+    text-align: right;
 }
 
 .NavLogo {
     float: left;
     margin-top: 13px;
-    width: 40px;
-    height: 40px;
 }
 
 .NavName {
@@ -113,12 +101,6 @@ h2 {
 .NavList {
     float: left;
     list-style: none;
-    width: 40px;
-}
-
-.smallLogo {
-	width: 19px;
-	height: 19px;
 }
 
 .Ad {
@@ -136,7 +118,6 @@ h2 {
 	align-items: center;
 	display: flex;
 	flex-wrap: wrap;
-	text-align: center;
 }
 
 .IntroMid {
@@ -149,8 +130,7 @@ h2 {
 }
 
 .IntroBox {
-	min-height: 300px;
-	width: 100%;
+	width: 45%;
 }
 
 .IntroBoxBreak {
@@ -175,13 +155,14 @@ h2 {
 
 .Subscribe_box_l {
 	padding-top: 120px;
-	width: 100%;
+	width: 40%;
 	word-wrap: break-word;
-	text-align: center;
+	text-align: left;
 }
 
 .Subscribe_box_r {
 	word-wrap: break-word;
+	width: 60%;
 	margin-top: -30px;
 }
 
