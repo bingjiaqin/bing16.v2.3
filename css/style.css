@@ -76,6 +76,14 @@ button {
 
 .clear{ clear:both}
 
+.Info {
+	position: absolute;  
+	width: 70%; 
+	min-width: 930px; 
+	max-width: 1080px; 
+	background-color: #f0f0f0;
+}
+
 .NavLeft {
     float: left;
     color: #555555;
