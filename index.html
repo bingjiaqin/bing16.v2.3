@@ -151,8 +151,7 @@
 
 <script type="text/JavaScript" src="./utils/headerComp.js"></script>
 <script type="text/JavaScript" src="./utils/statisticComp.js"></script>
-<script id="yinCangData" type="text/javascript" src="./data/yincang.json"></script>
-<script type='text/javascript' src='https://libs.baidu.com/jquery/2.0.0/jquery.min.js'></script> 
+<script type='text/javascript' src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> 
 <script type="text/JavaScript">
     Vue.component("my-nav", headerComp)
     Vue.component("my-statistic", statisticComp)
@@ -203,10 +202,9 @@
         }
     })
 
-
-    let yincangData = ""
-
-    $.getJSON("./data/yincang.json",data=>{console.log(data);yincangData=data})
+    $.ajaxSetup({async:false})
+    let yincangData = []
+    $.getJSON("./data/yincang.json", data=>yincangData=data)
 
     var appYincang = new Vue({
         el: "#yinCang",

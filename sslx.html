@@ -87,7 +87,7 @@
 
 <script type="text/JavaScript" src="./utils/headerComp.js"></script>
 <script type="text/JavaScript" src="./utils/statisticComp.js"></script>
-<script type="text/javascript" src="./data/sslx.json"></script>
+<script type='text/javascript' src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> 
 <script type="text/JavaScript">
     Vue.component("my-nav", headerComp)
     Vue.component("my-statistic", statisticComp)
@@ -101,6 +101,11 @@
     var appNav = new Vue({
         el: "#navFoot"
     })
+
+
+    $.ajaxSetup({async:false})
+    let sslxItems = []
+    $.getJSON("./data/sslx.json", data=>sslxItems=data)
 
     var sslx = new Vue({
         el: "#sslx",

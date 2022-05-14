@@ -1,4 +1,4 @@
-const wyzxItems = [
+[
     {"title": "基于XY双轴移动LED的图片再现装置", "intro": "个人的智能硬件与智能系统小组项目。目前第二版封装完毕。", "href": "wyzx/ClassProject.html"},
     {"title": "MyRPI", "intro": "个人的树莓派尝试。因为摄像头原因搁置中。。。", "href": "wyzx/MyRPi.html"},
     {"title": "ReRe-未来之书", "intro": "比赛项目，目前搁置。。。", "href": "wyzx/ReRe.html"},
@@ -11,5 +11,5 @@ const wyzxItems = [
     {"title": "Django学习", "intro": "新版网站（Django版），目前搁置中。。。", "href": "wyzx/DjangoLearning.html"},
     {"title": "激光SLAM", "intro": "参考b站视频激光SLAM及论文绪论部分的整理。", "href": "wyzx/LiDARSLAM.html"},
     {"title": "数据结构-1", "intro": "根据邓老师数据结构课程整理。", "href": "wyzx/shujujiegou1.html"},
-    {"title": "IV2017-2019", "intro": "统计2017-2019欧洲学校在IEEE上的IV论文数量。", "href": "wyzx/IV.html"},
+    {"title": "IV2017-2019", "intro": "统计2017-2019欧洲学校在IEEE上的IV论文数量。", "href": "wyzx/IV.html"}
 ]
