@@ -145,32 +145,24 @@
     <!-- Footer -->
     <Footer id="navFoot">
         <my-nav></my-nav>
+        <my-statistic></my-statistic>
     </Footer>
-    <div align="right"><div align="right" style="font-size: 0.9em; margin-top: -1em; margin-bottom: 1em; color:#AAA; width: 500px">© 2018-2021 <a href="https://bingjiaqin.github.io" style="color: #AAA">Bing16</a>. All rights reserved. <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1276882696'%3E%3C/span%3E%3Cscript src='https://s23.cnzz.com/z_stat.php%3Fid%3D1276882696%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></div>
 </body>
 
+<script type="text/JavaScript" src="./utils/headerComp.js"></script>
+<script type="text/JavaScript" src="./utils/statisticComp.js"></script>
+<script id="yinCangData" type="text/javascript" src="./data/yincang.json"></script>
+<script type='text/javascript' src='https://libs.baidu.com/jquery/2.0.0/jquery.min.js'></script> 
 <script type="text/JavaScript">
-    pageTitle = "主页"
+    Vue.component("my-nav", headerComp)
+    Vue.component("my-statistic", statisticComp)
 
-    Vue.component("my-nav", {
-        data: function() {
-            return {
-                navs: [
-                { title: "主页", style: {width: "72px"}, href: "index.html"},
-                { title: "乌有之乡", style: {width: "100px"}, href: "wyzx.html"},
-                { title: "随思乱想", style: {width: "100px"}, href: "sslx.html"},
-                { title: "浮光掠影", style: {width: "100px"}, href: "fgly.html"},
-                { title: "|", style: {width: "20px"}},
-                { title: "关于我", style: {width: "70px"}, href: "about.html"}
-                ]
-            }
-        },
-        template: '<div><div class="NavLeft"><div class="NavLogo"><img src="images/logo.jpg" width="40px" height="40px"></div><div class="NavName">Bing16</div></div><div class="NavRight"><ul><li class="NavList" v-for="nav in navs" v-bind:style="nav.style"><a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a></li><li class="NavList" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 3px"></a></li></ul></div><div class="clear"></div></div>'
-    })
+    pageTitle = "主页"
 
     var appNav = new Vue({
         el: "#navHead"
     })
+
 
     var appNav = new Vue({
         el: "#navFoot"
@@ -211,18 +203,15 @@
         }
     })
 
+
+    let yincangData = ""
+
+    $.getJSON("./data/yincang.json",data=>{console.log(data);yincangData=data})
+
     var appYincang = new Vue({
         el: "#yinCang",
         data:{
-            items: [
-            {title: "20210102", content: "写在2020年和2021年交接之时的那篇由于自己的操作失误已经找不到了，今天就随便写点别的吧。今天晚上吃的巧克力和酒，那就是在拉开易拉罐拉环的那一刻突然发现这种搭配竟然是《言叶之庭》中女主在失去味觉之后的选择。但仔细一想慢慢品味，这两种食品的感觉确实也有自己的独特之处......", href: "xing/20210102.html"},
-            {title: "20200531", content: "亲爱的QBJ：最近是逐渐认清了自己，是个充满恶的人，所以总是想自我和解却又在自我厌恶，丝毫没有长进......", href: "xing/20200531.html"},
-            {title: "20200411", content: "爱自己，去生活。又一次给刚认识的喜欢的人带来桃花运，您可真行。其实，你应该意识到了，在TH这四年来，你还是没有学会去争取。工作也好，恋爱也罢，都是一样。我是觉得，既然他都能遇到喜欢的人了，我的存在也就没有必要了。但你要知道，这世界并不是缺了谁就不转了的，没有任何一个人离开另一个人后会活不下去。所以没有人会怜悯你。但这或许是你的性格，深深地刻入骨子里的东西，你不想去争些什么，不想去做恶人。你会觉得，公司在面试你的时候早已放弃了你，你会觉得你表白的时候他的犹豫是在等另一个人，或者你又会觉得他在遇到你之前早就有了目标。但人生哪会给你这么多机会啊。不属于你的还是不属于你，你想要的喜欢而不得。世界并不总是顺着你的心意......", href: "xing/20200411.html"},
-            {title: "20200323", content: "亲爱的QBJ：亲爱的QBJ：除了感叹人生艰难，似乎就无能为力了。考研失败后开始投递了简历，但四五次面试后才知道找工作也是非常艰难的事情。至今仍没有一份offer。其实所谓的仍有期望，不过是建立在各种很小很小的目标实现的基础上。但目前看起来，似乎有些遥不可及。后来我才知道，我们是同样的人，同样的百分之十，同样的企图在工作中寻找自己，但他们是幸运且优秀的人，乐观开朗且有各种成绩。所以终究还是不一样。我已开始妥协，似乎觉得这一次次失败的面试单纯是浪费时间毫无意义......", href: "xing/20200323.html"},
-            {title: "20191031", content: "时至今日，我也不知道该说什么了。说是天命也罢，总该付出努力和奋斗。今天，依旧是单身一人，没有人关心你所关心的那些不值一提的事情，和十二三四岁时一样，独自一人，在午后，畅饮。是啊，依旧是一个人，途中遇到了无数人不过是过客罢了，有一些人第一面即是最后一面，又有一些人自此别过后就再也不会相见。大家不过是各奔前程，各自向着美好的未来。而我，却不知该往何处，能往何处。今天，你得走起来了，加紧脚步，跟上节奏，别再掉链子了。那些该禁止的禁止，该努力的努力，该做的做，一切都才会有......", href: "xing/20191031.html"},
-            {title: "20190808", content: "虚假与玩笑不能当饭吃。您今天还是没有明白这个道理吗？您今天是否还记得四天前的计划？ 然而您是否去做了，现如今在追寻着什么虚无缥缈的东西？您且听我说：有些的东西是美好的，但无法强求，得到时他是美好的， 得不到时也罢，但若死命追求，那他怕是成了荒废时间的东西。 回顾这三年多来的生活，你在追求些什么，又做了些什么？ 那些东西给你带来了什么收益吗？ 看看周围的那些人，各个都过得比你好。 是该反思些东西了，虽然事到如今也无济于事。 但总有反思些什么。确实，这种状态可以追溯到很久......", href: "xing/20190808.html"},
-            {title: "20181211", content: "这次我决定用电子版写。现在是2018年12月11日14点14分，今天会是美好的一天吗？我不知道，只记得和他聊天的那几天真的非常开心，有这种感觉的上一次应该还是在四五年前吧。是的，真的非常开心，那两天我都起得很早，在宿舍的灯亮了不久的时候，在闹钟响起之前。我以为这种状态会一直持续下去，但这并没有发生。第二天我还是醒得很早，却没有起床，因为我不知道该去迎接什么，是的我不知道。后来大概是持续了二十几天的时间吧，我一直在和另一个心境相似的人交流，虽说相似，不幸的人却各有各的不幸。我还是挺羡慕他的......", href: "xing/20181211.html"},
-            ]
+            items: yincangData
         }
     })
 

@@ -145,29 +145,18 @@
     <!-- Footer -->
     <Footer id="navFoot">
         <my-nav></my-nav>
+        <my-statistic></my-statistic>
     </Footer>
-    <div align="right"><div align="right" style="font-size: 0.9em; margin-top: -1em; margin-bottom: 1em; color:#AAA; width: 500px">© 2018-2021 <a href="https://bingjiaqin.github.io" style="color: #AAA">Bing16</a>. All rights reserved. <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1276882696'%3E%3C/span%3E%3Cscript src='https://s23.cnzz.com/z_stat.php%3Fid%3D1276882696%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></div>
 </body>
 
-
+<script type="text/JavaScript" src="./utils/headerComp.js"></script>
+<script type="text/JavaScript" src="./utils/statisticComp.js"></script>
+<script type="text/javascript" src="./data/wyzx.json"></script>
 <script type="text/JavaScript">
-    pageTitle = "乌有之乡"
+    Vue.component("my-nav", headerComp)
+    Vue.component("my-statistic", statisticComp)
 
-    Vue.component("my-nav", {
-        data: function() {
-            return {
-                navs: [
-                { title: "主页", style: {width: "72px"}, href: "index.html"},
-                { title: "乌有之乡", style: {width: "100px"}, href: "wyzx.html"},
-                { title: "随思乱想", style: {width: "100px"}, href: "sslx.html"},
-                { title: "浮光掠影", style: {width: "100px"}, href: "fgly.html"},
-                { title: "|", style: {width: "20px"}},
-                { title: "关于我", style: {width: "70px"}, href: "about.html"}
-                ]
-            }
-        },
-        template: '<div><div class="NavLeft"><div class="NavLogo"><img src="images/logo.jpg" width="40px" height="40px"></div><div class="NavName">Bing16</div></div><div class="NavRight"><ul><li class="NavList" v-for="nav in navs" v-bind:style="nav.style"><a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a></li><li class="NavList" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 3px"></a></li></ul></div><div class="clear"></div></div>'
-    })
+    pageTitle = "乌有之乡"
 
     var appNav = new Vue({
         el: "#navHead"
@@ -191,21 +180,7 @@
         el: "#wyzx",
         data:{
             pageNum: 1,
-            items: [
-            {title: "基于XY双轴移动LED的图片再现装置", intro: "个人的智能硬件与智能系统小组项目。目前第二版封装完毕。", href: "wyzx/ClassProject.html"},
-            {title: "MyRPI", intro: "个人的树莓派尝试。因为摄像头原因搁置中。。。", href: "wyzx/MyRPi.html"},
-            {title: "ReRe-未来之书", intro: "比赛项目，目前搁置。。。", href: "wyzx/ReRe.html"},
-            {title: "ROS平台简易教程", intro: "结合个人在SRT项目中的使用情况完成。", href: "wyzx/ROSLearning.html"},
-            {title: "Bing16的柯基小店", intro: "一些在科服修电脑的经验总结。", href: "wyzx/Kefujilu.html"},
-            {title: "基于安卓+某app的自动位置记录脚本", intro: "记录某app上距离固定三点的距离，通过求三个圆的交点求确定坐标。", href: "wyzx/AutoGetPosition.html"},
-            {title: "A-LOAM安装测试", intro: "在Ubuntu16.04上安装A-LOAM相关平台并测试。", href: "wyzx/A-LOAMTest.html"},
-            {title: "LOAM学习", intro: "按照论文LOAM: Odometry and Mapping in Real-time的思路对相关算法进行理解。", href: "wyzx/LOAMLearning.html"},
-            {title: "Livox_LOAM学习", intro: "基于固态激光雷达与的定位建图工作。", href: "wyzx/LivoxLOAMLearning.html"},
-            {title: "Django学习", intro: "新版网站（Django版），目前搁置中。。。", href: "wyzx/DjangoLearning.html"},
-            {title: "激光SLAM", intro: "参考b站视频激光SLAM及论文绪论部分的整理。", href: "wyzx/LiDARSLAM.html"},
-            {title: "数据结构-1", intro: "根据邓老师数据结构课程整理。", href: "wyzx/shujujiegou1.html"},
-            {title: "IV2017-2019", intro: "统计2017-2019欧洲学校在IEEE上的IV论文数量。", href: "wyzx/IV.html"},
-            ]
+            items: wyzxItems
         }
     })
 
