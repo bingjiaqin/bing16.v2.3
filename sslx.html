@@ -10,7 +10,9 @@
 
 <body>
     <!-- Header -->
-    <header id="navHead"><my-nav></my-nav></header>
+    <header id="navHead">
+        <header_form></header_form>
+    </header>
 
     <marquee behavior="scroll" direction="left" class="Info">
         【2021-01-01】当前样式尚未对移动端竖屏设备适配，推荐横屏访问。
@@ -78,28 +80,33 @@
 
     <!-- Footer -->
     <Footer id="navFoot">
-        <my-nav></my-nav>
-        <my-statistic></my-statistic>
+        <header_form></header_form>
+        <statistic_form></statistic_form>
     </Footer>
 </iframe>
 
 </body>
 
-<script type="text/JavaScript" src="./utils/headerComp.js"></script>
-<script type="text/JavaScript" src="./utils/statisticComp.js"></script>
+<script type="text/JavaScript" src="./utils/header.js"></script>
+<script type="text/JavaScript" src="./utils/statistic.js"></script>
 <script type='text/javascript' src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> 
 <script type="text/JavaScript">
-    Vue.component("my-nav", headerComp)
-    Vue.component("my-statistic", statisticComp)
-
     const pageTitle = "随思乱想"
 
     var appNav = new Vue({
-        el: "#navHead"
+        el: "#navHead",
+        components: {
+            "header_form": headerForm
+        }
     })
 
+
     var appNav = new Vue({
-        el: "#navFoot"
+        el: "#navFoot",
+        components: {
+            "header_form": headerForm,
+            "statistic_form": statisticForm
+        }
     })
 
 

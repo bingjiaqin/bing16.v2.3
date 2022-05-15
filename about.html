@@ -11,10 +11,10 @@
 </head>
 
 <body>
-	<!-- Header -->
-	<header id="navHead">
-		<my-nav></my-nav>
-	</header>
+    <!-- Header -->
+    <header id="navHead">
+        <header_form></header_form>
+    </header>
 
     <marquee behavior="scroll" direction="left" class="Info">
         【2021-01-01】当前样式尚未对移动端竖屏设备适配，推荐横屏访问。
@@ -62,51 +62,49 @@
 
     <hr>
 
-	<!-- Footer -->
-	<Footer id="navFoot">
-		<my-nav></my-nav>
-	</Footer>
-	<div align="right"><div align="right" style="font-size: 0.9em; margin-top: -1em; margin-bottom: 1em; color:#AAA; width: 500px">© 2018-2021 <a href="https://bingjiaqin.github.io" style="color: #AAA">Bing16</a>. All rights reserved. <script type="text/javascript">document.write(unescape("%3Cspan id='cnzz_stat_icon_1276882696'%3E%3C/span%3E%3Cscript src='https://s23.cnzz.com/z_stat.php%3Fid%3D1276882696%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script></div></div>
+    <!-- Footer -->
+    <Footer id="navFoot">
+        <header_form></header_form>
+        <statistic_form></statistic_form>
+    </Footer>
 </body>
 
+<script type="text/JavaScript" src="./utils/header.js"></script>
+<script type="text/JavaScript" src="./utils/statistic.js"></script>
+<script type='text/javascript' src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <script type="text/JavaScript">
 	pageTitle = "关于我"
 
-	Vue.component("my-nav", {
-		data: function() {
-			return {
-				navs: [
-				{ title: "主页", style: {width: "72px"}, href: "index.html"},
-				{ title: "乌有之乡", style: {width: "100px"}, href: "wyzx.html"},
-				{ title: "随思乱想", style: {width: "100px"}, href: "sslx.html"},
-				{ title: "浮光掠影", style: {width: "100px"}, href: "fgly.html"},
-				{ title: "|", style: {width: "20px"}},
-				{ title: "关于我", style: {width: "70px"}, href: "about.html"}
-				]
-			}
-		},
-		template: '<div><div class="NavLeft"><div class="NavLogo"><img src="images/logo.jpg" width="40px" height="40px"></div><div class="NavName">Bing16</div></div><div class="NavRight"><ul><li class="NavList" v-for="nav in navs" v-bind:style="nav.style"><a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a></li><li class="NavList" style="width: 40px"><a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 3px"></a></li></ul></div><div class="clear"></div></div>'
-	})
+    $.ajaxSetup({async:false})
+    let adData = {}
+    $.getJSON("./data/ad.json", data=>adData=data)
 
-	var appNav = new Vue({
-		el: "#navHead"
-	})
+    var appNav = new Vue({
+        el: "#navHead",
+        components: {
+            "header_form": headerForm
+        }
+    })
 
-	var appNav = new Vue({
-		el: "#navFoot"
-	})
+    var appNav = new Vue({
+        el: "#navFoot",
+        components: {
+            "header_form": headerForm,
+            "statistic_form": statisticForm
+        }
+    })
 
-	var appAd = new Vue({
-		el: "#nd",
-		data: {
-			message: "其他联系方式：\rWeChat：KareNoNeko\r网易云音乐：KareNoNeko\r新浪微博：香香的鸽子牌柠檬味复读机"
-		},
-		methods: {
-			showMessage: function (event) {
-				alert(this.message)
-			}
-		}
-	})
+    var appAd = new Vue({
+        el: "#nd",
+        data: {
+            message: adData.message
+        },
+        methods: {
+            showMessage: function (event) {
+                alert(this.message)
+            }
+        }
+    })
 
 </script>
 </html>
