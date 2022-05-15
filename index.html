@@ -104,9 +104,11 @@
 
     $.ajaxSetup({async:false})
     let yincangData = []
+    let pictures = []
     let adData = {}
     $.getJSON("./data/yincang.json", data=>yincangData=data)
     $.getJSON("./data/ad.json", data=>adData=data)
+    $.getJSON("./data/pic.json", data=>pictures=data)
 
     var appNav = new Vue({
         el: "#navHead",
@@ -138,12 +140,7 @@
     var appPic = new Vue({
         el: "#picture",
         data: {
-            pictures: [
-            { src: "images/1.jpg", radioId: "slides_1", title: "【2019年春】人们在看舞龙"},
-            { src: "images/2.jpg", radioId: "slides_2", title: "【2016年夏】没有人知道人生的列车开往何处"},
-            { src: "images/3.jpg", radioId: "slides_3", title: "【2019年夏】工业与禁锢"},
-            { src: "images/4.jpg", radioId: "slides_4", title: "【2018年夏】山雾·天欲雨"}
-            ]
+            pictures: pictures
         }
     })
 
