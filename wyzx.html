@@ -21,6 +21,7 @@
         【2021-01-01】当前样式尚未对移动端竖屏设备适配，推荐横屏访问。
     </marquee>
 
+    <div id="wyzx">
     <div class="Intro">
         <!-- 欢迎语 -->
         <div class="IntroBox" style="position: relative; top: -1em">
@@ -29,25 +30,25 @@
 
         <div class="IntroBoxBreak"></div>
 
-        <div class="IntroBox" id="picture" style="position: relative; top: -3em">
+        <div class="IntroBox" style="position: relative; top: -3em">
             <table width="100%"><tbody><tr><td></td><td width="450em"><table border="0">
                   <tbody>
                     <tr height="100">
-                          <td colspan="3" align="center" width="450em">搜索：<input type="search" title="Ctrl+F可搜索本页内容" value="此处尚未施工完成喔~">&emsp;<input type="submit" title="提交" value="OK"></td>
+                          <td colspan="3" align="center" width="450em">搜索：<input type="search" title="Ctrl+F可搜索本页内容" v-model="key"><input type="submit" title="提交" value="submit" @click="dosomething()"><input type="submit" title="取消" value="cancel" @click="cancel()"></td>
                       </tr>
                     <tr>
-                      <td width="150em"><a href="wyzx/Machine.html" target="new"><img src="images/1/Machine.png" width="150em"></a></td>
-                      <td width="150em"><a href="wyzx/Art.html" target="new"><img src="images/1/Art.png" width="150em"></a></td>
-                      <td width="150em"><a href="wyzx/Python.html" target="new"><img src="images/1/Python.png" width="150em"></a></td>
+                      <td width="150em"><img src="images/1/Machine.png" width="150em" @click="inputTag('machine')"></td>
+                      <td width="150em"><img src="images/1/Art.png" width="150em" @click="inputTag('art')"></td>
+                      <td width="150em"><img src="images/1/Python.png" width="150em" @click="inputTag('python')"></td>
                     </tr>
                     <tr>
-                      <td><a href="wyzx/CPP.html" target="new"><img src="images/1/CPP.png" width="150em"></a></td>
-                      <td><a href="wyzx/RPI.html" target="new"><img src="images/1/RPI.png" width="150em"></a></td>
-                      <td><a href="wyzx/Arduino.html" class="a_tag" target="new"><img src="images/1/Arduino.png" width="150em"></a></td>
+                      <td><img src="images/1/CPP.png" width="150em" @click="inputTag('c++')"></td>
+                      <td><img src="images/1/RPI.png" width="150em" @click="inputTag('rpi')"></td>
+                      <td><img src="images/1/Arduino.png" width="150em" @click="inputTag('arduino')"></td>
                     </tr>
                     <tr>
-                      <td><a href="wyzx/Ubuntu.html" target="new"><img src="images/1/Ubuntu.png" width="150em"></a></td>
-                      <td><a href="wyzx/ROS.html" target="new"><img src="images/1/ROS.png" width="150em"></a></td>
+                      <td><img src="images/1/Ubuntu.png" width="150em" @click="inputTag('ubuntu')"></td>
+                      <td><img src="images/1/ROS.png" width="150em" @click="inputTag('ros')"></td>
                       <td></td>
                     </tr>
                   </tbody>
@@ -59,28 +60,30 @@
     
     <hr>
 
-    <div id="wyzx">
+    <div>
         <div class="Content">
             <div class="ListBox">
-                <span  v-for="(item, index) in items">
+                <span  v-for="(item, index) in wyzxItems">
                     <div class="ItemBox" v-if="index >= 10*(pageNum-1) && index < 10*pageNum">
                         <h3>{{ item.title }}</h3>
                         <p>{{ item.intro }}<div><a v-bind:href="item.href">more</a></div></p>
                     </div>
                 </span>
+                <p v-if="wyzxItems.length==0">暂无数据</p>
             </div>
         </div>
         <div align="right">
             <table><tbody>
                 <tr align="center">
                     <td width="50em"><button v-if="pageNum!=1" v-on:click="pageNum -= 1">←</button><button v-else>←</button></td>
-                    <td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+Math.ceil(items.length / 10)+') {value = Math.ceil(items.length / 10)}'" style="width: 2em; text-align: center; font-size: 0.9em"> / {{ Math.ceil(items.length / 10) }}</td>
-                    <td width="50em"><button v-if="pageNum!=Math.ceil(items.length / 10)" v-on:click="pageNum += 1">→</button><button v-else>→</button></td>
+                    <td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+Math.ceil(wyzxItems.length / 10)+') {value = Math.ceil(wyzxItems.length / 10)}'" style="width: 2em; text-align: center; font-size: 0.9em"> / {{ Math.max(1, Math.ceil(wyzxItems.length / 10)) }}</td>
+                    <td width="50em"><button v-if="pageNum!=Math.ceil(wyzxItems.length / 10)" v-on:click="pageNum += 1">→</button><button v-else>→</button></td>
                 </tr>
             </tbody></table>
             
         </div>
     </div>
+</div>
 
     <hr>
 
@@ -105,6 +108,12 @@
 <script type="text/JavaScript">
     pageTitle = "乌有之乡"
 
+    let key = ""
+
+    $.ajaxSetup({async:false})
+    let sourceWyzxItems = []
+    $.getJSON("./data/wyzx.json", data=>sourceWyzxItems=data)
+
     var appNav = new Vue({
         el: "#navHead",
         components: {
@@ -128,15 +137,31 @@
         }
     })
 
-    $.ajaxSetup({async:false})
-    let wyzxItems = []
-    $.getJSON("./data/wyzx.json", data=>wyzxItems=data)
-
     var wyzx = new Vue({
         el: "#wyzx",
         data:{
             pageNum: 1,
-            items: wyzxItems
+            wyzxItems: sourceWyzxItems
+        },
+        methods:{
+            dosomething() {
+                if (key.length > 0) {
+                    this.wyzxItems = sourceWyzxItems.filter(
+                        item => item.title.toUpperCase().includes(key.toUpperCase()) 
+                        || item.intro.toUpperCase().includes(key.toUpperCase())
+                        || (item.tags != null && item.tags.indexOf(key) > -1))
+                } else {
+                    this.wyzxItems = sourceWyzxItems
+                }
+            },
+            inputTag(tag) {
+                console.log(tag)
+                key = tag
+                this.dosomething()
+            },
+            cancel() {
+                this.wyzxItems = sourceWyzxItems
+            }
         }
     })
 
