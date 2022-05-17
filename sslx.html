@@ -19,19 +19,20 @@
         【2021-01-01】当前样式尚未对移动端竖屏设备适配，推荐横屏访问。
     </marquee>
 
+    <div id="sslx">
     <div class="IntroMid">
-        <div class="IntroBox"><br><h2>随思乱想</h2><p>当我在神游时，我在想些什么。</p></div>
-        <div class="IntroBox"></div>
+        <div class="IntroBox"><div style="margin-top: 1em;"><h2>随思乱想</h2></div><p>当我在神游时，我在想些什么。</p></div>
+        <div class="IntroBox"><br><div align="right" style="margin-top: 1em;">搜索：<input type="search" title="Ctrl+F可搜索本页内容" v-model="key" @change="dosomething()"/><input type="submit" title="提交" value="submit" @click="dosomething()"/><input type="submit" title="取消" value="cancel" @click="cancel()"/></div></div>
     </div>
 
-    <div  id="sslx">
+    <div>
         <span><sapn v-once v-bind="pageNum = items.length"/></span>
 
         <div align="right">
             <table><tbody>
                 <tr align="center">
                     <td width="50em"><button v-if="pageNum!=1" v-on:click="pageNum -= 1">←</button><button v-else>←</button></td>
-                    <td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+items.length+') {value = items.length}'" style="width: 2em; text-align: center; font-size: 1em"> / {{ items.length }}</td>
+                    <td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+Math.max(1, items.length)+') {value = Math.max(items.length)}'" style="width: 2em; text-align: center; font-size: 1em"> / {{ Math.max(1, items.length) }}</td>
                     <td width="50em"><button v-if="pageNum!=items.length" v-on:click="pageNum += 1">→</button><button v-else>→</button></td>
                     <td><a href="sslx/History.html">history</a></td>
                 </tr>
@@ -52,19 +53,21 @@
                     </span>
                 </span>
             </span>
+            <p v-show="items.length==0">暂无数据</p>
         </div>
 
         <div align="right">
             <table><tbody>
                 <tr align="center">
                     <td width="50em"><button v-if="pageNum!=1" v-on:click="pageNum -= 1">←</button><button v-else>←</button></td>
-                    <td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+items.length+') {value = items.length}'" style="width: 2em; text-align: center; font-size: 1em"> / {{ items.length }}</td>
+                    <td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+Math.max(1, items.length)+') {value = Math.max(items.length)}'" style="width: 2em; text-align: center; font-size: 1em"> / {{ Math.max(1, items.length) }}</td>
                     <td width="50em"><button v-if="pageNum!=items.length" v-on:click="pageNum += 1">→</button><button v-else>→</button></td>
                     <td><a href="sslx/History.html">history</a></td>
                 </tr>
             </tbody></table>
             
         </div>
+    </div>
     </div>
 
     <!-- 留言 -->
@@ -94,6 +97,12 @@
 <script type="text/JavaScript">
     const pageTitle = "随思乱想"
 
+    let key = ""
+
+    $.ajaxSetup({async:false})
+    let sourceSslxItems = []
+    $.getJSON("./data/sslx.json", data=>sourceSslxItems=data)
+
     var appNav = new Vue({
         el: "#navHead",
         components: {
@@ -110,16 +119,53 @@
         }
     })
 
-
-    $.ajaxSetup({async:false})
-    let sslxItems = []
-    $.getJSON("./data/sslx.json", data=>sslxItems=data)
-
     var sslx = new Vue({
         el: "#sslx",
         data: {
             pageNum: 0,
-            items: sslxItems
+            items: sourceSslxItems
+        },
+        methods:{
+            dosomething() {
+                if (key.length > 0) {
+                    this.items = []
+                    for (var i = 0; i < sourceSslxItems.length; i++) {
+                        item = sourceSslxItems[i]
+                        if (item.subTitle.toUpperCase().includes(key.toUpperCase())
+                        || item.year.toUpperCase().includes(key.toUpperCase())) {
+                            this.items.push(item)
+                        } else {
+                            lists = []
+                            for (var j = 0; j < item.lists.length; j++) {
+                                subItem = item.lists[j]
+                                if (subItem.content.toUpperCase().includes(key.toUpperCase())
+                                    || subItem.time.toUpperCase().includes(key.toUpperCase())) {
+                                    lists.push(subItem)
+                                }
+                            }
+                            if (lists.length != 0) {
+                                newItem = {}
+                                newItem['year'] = item.year
+                                newItem['subTitle'] = item.subTitle
+                                newItem['lists'] = lists
+                                this.items.push(newItem)
+                            }
+                        }
+                    }
+                } else {
+                    this.items = sourceSslxItems
+                }
+                this.pageNum = Math.max(1, this.items.length)
+            },
+            inputTag(tag) {
+                key = tag
+                this.dosomething()
+                this.pageNum = Math.max(1, this.items.length)
+            },
+            cancel() {
+                this.items = sourceSslxItems
+                this.pageNum = Math.max(1, this.items.length)
+            }
         }
     })
 </script>

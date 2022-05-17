@@ -34,7 +34,7 @@
             <table width="100%"><tbody><tr><td></td><td width="450em"><table border="0">
                   <tbody>
                     <tr height="100">
-                          <td colspan="3" align="center" width="450em">搜索：<input type="search" title="Ctrl+F可搜索本页内容" v-model="key"><input type="submit" title="提交" value="submit" @click="dosomething()"><input type="submit" title="取消" value="cancel" @click="cancel()"></td>
+                          <td colspan="3" align="center" width="450em">搜索：<input type="search" title="Ctrl+F可搜索本页内容" v-model="key" @change="dosomething()"/><input type="submit" title="提交" value="submit" @click="dosomething()"/><input type="submit" title="取消" value="cancel" @click="cancel()"/></td>
                       </tr>
                     <tr>
                       <td width="150em"><img src="images/1/Machine.png" width="150em" @click="inputTag('machine')"></td>
@@ -69,14 +69,14 @@
                         <p>{{ item.intro }}<div><a v-bind:href="item.href">more</a></div></p>
                     </div>
                 </span>
-                <p v-if="wyzxItems.length==0">暂无数据</p>
+                <p v-show="wyzxItems.length==0">暂无数据</p>
             </div>
         </div>
         <div align="right">
             <table><tbody>
                 <tr align="center">
                     <td width="50em"><button v-if="pageNum!=1" v-on:click="pageNum -= 1">←</button><button v-else>←</button></td>
-                    <td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+Math.ceil(wyzxItems.length / 10)+') {value = Math.ceil(wyzxItems.length / 10)}'" style="width: 2em; text-align: center; font-size: 0.9em"> / {{ Math.max(1, Math.ceil(wyzxItems.length / 10)) }}</td>
+                    <td width="100em"><input type="number" v-model="pageNum" v-bind:oninput="'if (value < 1) {value = 1} if (value>'+Math.max(1, Math.ceil(wyzxItems.length / 10))+') {value = Math.ceil(wyzxItems.length / 10)}'" style="width: 2em; text-align: center; font-size: 0.9em"> / {{ Math.max(1, Math.ceil(wyzxItems.length / 10)) }}</td>
                     <td width="50em"><button v-if="pageNum!=Math.ceil(wyzxItems.length / 10)" v-on:click="pageNum += 1">→</button><button v-else>→</button></td>
                 </tr>
             </tbody></table>
@@ -153,14 +153,16 @@
                 } else {
                     this.wyzxItems = sourceWyzxItems
                 }
+                this.pageNum = 1
             },
             inputTag(tag) {
-                console.log(tag)
                 key = tag
                 this.dosomething()
+                this.pageNum = 1
             },
             cancel() {
                 this.wyzxItems = sourceWyzxItems
+                this.pageNum = 1
             }
         }
     })
