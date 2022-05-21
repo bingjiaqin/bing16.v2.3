@@ -3,8 +3,6 @@
 <head>
 <meta charset="utf-8">
 <title>Bing16/浮光掠影</title>
-<link rel="stylesheet" type="text/css" href="css/style.css" media="screen and (min-width:600px)"/>
-<link rel="stylesheet" type="text/css" href="css/mstyle.css" media="screen and (max-width:600px)"/>
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" media="screen"/>
 <script src="https://cdn.bootcss.com/vue/2.5.20/vue.min.js"></script>
 <script type="text/javascript" src="./utils/51la.js"></script>
@@ -76,9 +74,22 @@
 <script type="text/JavaScript" src="./utils/header.js"></script>
 <script type="text/JavaScript" src="./utils/statistic.js"></script>
 <script type="text/JavaScript" src="./utils/subscribe.js"></script>
+<script type="text/JavaScript" src="./utils/isMobile.js"></script>
 <script type='text/javascript' src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script> 
 <script type="text/JavaScript">
     pageTitle = "浮光掠影"
+
+    var mobile_flag = isMobile();
+    var link = document.createElement("link");
+    link.rel = 'stylesheet';
+    var head = document.head;
+    if (mobile_flag) {
+        link.href = './css/mstyle.css';
+        head.appendChild(link);
+    } else {
+        link.href = './css/style.css';
+        head.appendChild(link);
+    }
 
     var appNav = new Vue({
         el: "#navHead",
