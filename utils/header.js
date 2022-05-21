@@ -22,7 +22,7 @@ const headerForm={
     <div class="NavRight">\
         <ul>\
             <li class="NavList" v-for="nav in navs" v-bind:style="nav.style">\
-                <a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a>\
+                <a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2-header">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a>\
             </li>\
             <li class="NavList" style="width: 40px">\
                 <a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 3px"></a>\

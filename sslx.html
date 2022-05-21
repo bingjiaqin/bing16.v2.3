@@ -4,6 +4,8 @@
 <head>
 <meta charset="utf-8">
 <title>Bing16/随思乱想</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" media="screen and (min-width:600px)"/>
+<link rel="stylesheet" type="text/css" href="css/mstyle.css" media="screen and (max-width:600px)"/>
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" media="screen"/>
 <script src="https://cdn.bootcss.com/vue/2.5.20/vue.min.js"></script>
 <script type="text/javascript" src="./utils/51la.js"></script>
@@ -16,13 +18,13 @@
     </header>
 
     <marquee behavior="scroll" direction="left" class="Info">
-        【2021-01-01】当前样式尚未对移动端竖屏设备适配，推荐横屏访问。
+        【2022-05-21】Hello, bing16 v3!
     </marquee>
 
     <div id="sslx">
     <div class="IntroMid">
         <div class="IntroBox"><div style="margin-top: 1em;"><h2>随思乱想</h2></div><p>当我在神游时，我在想些什么。</p></div>
-        <div class="IntroBox"><br><div align="right" style="margin-top: 1em;">搜索：<input type="search" title="Ctrl+F可搜索本页内容" v-model="key" @change="dosomething()"/><input type="submit" title="提交" value="submit" @click="dosomething()"/><input type="submit" title="取消" value="cancel" @click="cancel()"/></div></div>
+        <div class="IntroBox"><br><div class="Search">搜索：<input type="search" title="Ctrl+F可搜索本页内容" v-model="key" @change="dosomething()"/><input type="submit" title="提交" value="submit" @click="dosomething()"/><input type="submit" title="取消" value="cancel" @click="cancel()"/></div></div>
     </div>
 
     <div>
@@ -169,9 +171,5 @@
         }
     })
 </script>
-
-<style type="text/css">
-    @import "./css/style.css";
-</style>
 
 </html>

@@ -1,3 +1,4 @@
+.divcss5-x2-header{ padding-bottom:3px; border-bottom:2px solid}
 .divcss5-x2{ padding-bottom:3px; border-bottom:2px solid}
 .divcss5-x2-r{ padding-bottom:3px; border-bottom:5px solid #FFE0E0}
 .divcss5-x2-b{ padding-bottom:3px; border-bottom:5px solid #D4E7E9}
@@ -145,6 +146,11 @@ button {
 	width: 8%;
 }
 
+.Search {
+	text-align: right;
+	margin-top: 1em;
+}
+
 .MenuBox {
 	width: 150px;
 	margin-top: 20px;
@@ -172,6 +178,19 @@ button {
 	word-wrap: break-word;
 	width: 60%;
 	margin-top: -30px;
+}
+
+.Subscribe_left {
+	padding-left: 2em;
+	padding-top: 0em;
+	background-color: #F0F0F0;
+}
+
+.Subscribe_right {
+	padding-right: 2.5em;
+	padding-left: 2em;
+	padding-top: 2em;
+	background-color: #F0F0F0;
 }
 
 .ListBox{
@@ -207,6 +226,7 @@ button {
 .utterances {
 	max-width: 100%;
 }
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

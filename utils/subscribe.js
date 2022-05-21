@@ -19,12 +19,12 @@ const subscribeForm={
                     </ul>\
         </div>\
         <div class="Subscribe_box_r" align="right">\
-            <table style="margin-top: 6em"><tbody><tr>\
+            <table style="margin-top: 6em" width="100%"><tbody><tr>\
                 <td></td>\
                 <td>\
-                    <table cellpadding="0em" cellspacing="0px" border="0px"><tbody>\
+                    <table cellpadding="0em" cellspacing="0px" border="0px" width="100%"><tbody>\
                         <tr height="330">\
-                            <td bgcolor="#F0F0F0" style="padding-left: 2em; padding-top: 0em">\
+                            <td class="Subscribe_left">\
                                 <table style="word-wrap:break-word;word-break:break-all;background-color: #ffffff" border="1px"><tbody>\
                                     <tr>\
                                     <td>\
@@ -41,7 +41,7 @@ const subscribeForm={
                                     </td>\
                                 </tr></tbody></table>\
                             </td>\
-                            <td bgcolor="#F0F0F0" style="padding-right: 2.5em; padding-left: 2em; padding-top: 2em">\
+                            <td class="Subscribe_right">\
                                 <div style="width: 12em">\
                                 <p align="left">Name<br><input type="text" placeholder="在这里输入名字喔！" v-model="userName" style="width: 15em"></p>\
                                 <p align="left">Email<br><input type="text" placeholder="在这里输入邮箱喔！" v-model="userEmail" maxlength="50" style="width: 15em"></p>\

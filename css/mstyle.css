@@ -1,3 +1,4 @@
+.divcss5-x2-header{ }
 .divcss5-x2{ padding-bottom:3px; border-bottom:2px solid}
 .divcss5-x2-r{ padding-bottom:3px; border-bottom:5px solid #FFE0E0}
 .divcss5-x2-b{ padding-bottom:3px; border-bottom:5px solid #D4E7E9}
@@ -5,12 +6,9 @@
 .rcolor{color: #ff5959}
 
 body{
-	width: 70%;
-	min-width: 930px;
-	max-width: 1080px;
-	padding-left: 100px;
-	padding-right: 100px;
-	border-left-width: 100px;
+	margin-left: 1em;
+	margin-right: 1em;
+	width: 90%;
 	font-size: 18px;
 	-webkit-text-size-adjust: none;
 }
@@ -26,12 +24,14 @@ footer {
 header a,
 footer a {
 	color: #555;
+	text-align: center;
 }
 
 h1,
 h2,
 strong {
 	color: #233142;
+	text-align: center;
 }
 
 h2 {
@@ -41,7 +41,6 @@ hr {
 	border: 1px solid #F0F0F0;
 	width: 100%;
 }
-
 
 a {
 	color: #ff5959;
@@ -77,22 +76,31 @@ button {
 .clear{ clear:both}
 
 .Info {
+	width: 90%;
 	position: absolute;  
-	width: 70%; 
-	min-width: 930px; 
-	max-width: 1080px; 
+	margin: 0 auto;
 	background-color: #f0f0f0;
 }
 
 .NavLeft {
+	width: 100%;
     float: left;
     color: #555555;
+    text-align: center;
 }
 
 .NavRight {
+	margin-top: 1em;
+	margin-bottom: 1em;
     float: right;
     color: #555555;
-    text-align: right;
+    text-align: center;
+    width: 100%;
+    border: solid;
+    border-left: 0;
+    border-right: 0;
+    border-width: 2px;
+    border-style: groove;
 }
 
 .NavLogo {
@@ -107,8 +115,11 @@ button {
 }
 
 .NavList {
-    float: left;
     list-style: none;
+    position: relative;
+    margin: 0 auto;
+    height: 1.7em;
+    width: 100%;
 }
 
 .Ad {
@@ -120,8 +131,8 @@ button {
 }
 
 .Intro {
-	min-height: 520px;
-	padding-top: 30px;
+	width: 100%;
+	padding-top: 6em;
 	padding-bottom: 80px;
 	align-items: center;
 	display: flex;
@@ -138,11 +149,18 @@ button {
 }
 
 .IntroBox {
-	width: 45%;
+	margin-top: 2em;
+	width: 100%;
+	text-align: center;
 }
 
 .IntroBoxBreak {
-	width: 8%;
+	width: 100%;
+}
+
+.Search {
+	text-align: center;
+	margin-top: 1em;
 }
 
 .MenuBox {
@@ -153,8 +171,6 @@ button {
 
 .Subscribe {
 	min-height: 450px;
-	padding-right: 0;
-	padding-left: 0;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-around;
@@ -162,16 +178,30 @@ button {
 }
 
 .Subscribe_box_l {
-	padding-top: 120px;
-	width: 40%;
+	padding-top: 1em;
+	width: 100%;
 	word-wrap: break-word;
 	text-align: left;
 }
 
 .Subscribe_box_r {
 	word-wrap: break-word;
-	width: 60%;
-	margin-top: -30px;
+	width: 100%;
+	margin-top: -4em;
+}
+
+.Subscribe_left {
+	padding-left: 2em;
+	padding-top: 0em;
+	background-color: #F0F0F0;
+	display: none;
+}
+
+.Subscribe_right {
+	padding-right: 2.5em;
+	padding-left: 2em;
+	padding-top: 2em;
+	background-color: #F0F0F0;
 }
 
 .ListBox{
@@ -203,6 +233,7 @@ button {
 	flex-wrap: wrap;
 	justify-content: space-around;
 }
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
