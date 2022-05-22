@@ -90,10 +90,7 @@ button {
 
 .NavRight {
 	margin-top: 1em;
-	margin-bottom: 1em;
-	padding-top: 1em;
-	padding-bottom: 1em;
-    float: right;
+	margin-bottom: 1em;    float: right;
     color: #555555;
     text-align: center;
     width: 100%;
@@ -124,8 +121,11 @@ button {
     list-style: none;
     position: relative;
     margin: 0 auto;
-    height: 1.7em;
     width: 100%;
+}
+
+.NavLi {
+	margin: 1em auto;
 }
 
 .Ad {
