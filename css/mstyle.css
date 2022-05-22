@@ -6,8 +6,9 @@
 .rcolor{color: #ff5959}
 
 body{
-	padding-left: 2em;
-	padding-right: 2em;
+	/*overflow-x:hidden;*/
+	margin-left: 2em;
+	margin-right: 2em;
 	font-size: 18px;
 	-webkit-text-size-adjust: none;
 }
@@ -75,8 +76,7 @@ button {
 .clear{ clear:both}
 
 .Info {
-	width: 90%;
-	position: absolute;  
+	position: relative;  
 	margin: 0 auto;
 	background-color: #f0f0f0;
 }
@@ -185,7 +185,7 @@ button {
 
 .Subscribe_box_r {
 	word-wrap: break-word;
-	width: 100%;
+	width: 90%;
 	margin-top: -4em;
 }
 

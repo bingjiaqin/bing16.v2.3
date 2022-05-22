@@ -42,9 +42,9 @@ const subscribeForm={
                                 </tr></tbody></table>\
                             </td>\
                             <td class="Subscribe_right">\
-                                <div style="width: 12em">\
-                                <p align="left">Name<br><input type="text" placeholder="在这里输入名字喔！" v-model="userName" style="width: 15em"></p>\
-                                <p align="left">Email<br><input type="text" placeholder="在这里输入邮箱喔！" v-model="userEmail" maxlength="50" style="width: 15em"></p>\
+                                <div style="width: 10em; max-width: 90%">\
+                                <p align="left">Name<br><input type="text" placeholder="在这里输入名字喔！" v-model="userName" style="width: 15em; max-width: 100%"></p>\
+                                <p align="left">Email<br><input type="text" placeholder="在这里输入邮箱喔！" v-model="userEmail" maxlength="50" style="width: 15em; max-width: 100%"></p>\
                                 <p style="font-size: 0.6em">\
                                     <input type="checkbox" id="乌有之乡" value="乌有之乡" v-model="contents"/>\
                                     <label for="jack">乌有之乡</label>\

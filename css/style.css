@@ -78,7 +78,7 @@ button {
 .clear{ clear:both}
 
 .Info {
-	position: absolute;  
+	position: relative;  
 	width: 70%; 
 	min-width: 930px; 
 	max-width: 1080px; 
