@@ -1,6 +1,7 @@
 const headerForm={
         data: function() {
             return {
+                "hide": true,
                 "navs": [
                 { "title": "主页", "style": {"width": "72px"}, "href": "index.html"},
                 { "title": "乌有之乡", "style": {"width": "100px"}, "href": "wyzx.html"},
@@ -9,6 +10,12 @@ const headerForm={
                 { "title": "|", style: {width: "20px"}},
                 { "title": "关于我", style: {width: "70px"}, href: "about.html"}
                 ]
+            }
+        },
+        methods: {
+            click: function () {
+                console.log(this.hide)
+                this.hide = !this.hide
             }
         },
         template: '\
@@ -21,12 +28,21 @@ const headerForm={
     </div>\
     <div class="NavRight">\
         <ul class="NavUl">\
-            <li class="NavList" v-for="nav in navs" v-bind:style="nav.style">\
-                <a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2-header">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a>\
-            </li>\
-            <li class="NavList" style="width: 40px">\
-                <a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 3px"></a>\
-            </li>\
+            <span v-for="nav in navs" class="NavList" >\
+                <span v-if="nav.title==pageTitle">\
+                    <li v-bind:style="nav.style">\
+                        <span class="rcolor"><span class="divcss5-x2-header" @click="click()">{{ nav.title }}</span>\
+                    </li>\
+                </span>\
+                <span v-else v-show="!mobile_flag || !hide">\
+                    <li v-bind:style="nav.style"><a v-bind:href="nav.href">{{ nav.title }}</a></li>\
+                </span>\
+            </span>\
+            <span class="NavList" v-show="!mobile_flag || !hide">\
+                <li class="NavList" style="width: 40px">\
+                    <a href="https://github.com/bingjiaqin"><img src="images/github.jpg" width="19px" height="19px" style="margin-top: 3px"></a>\
+                </li>\
+            </span>\
         </ul>\
     </div>\
     <div class="clear">\
