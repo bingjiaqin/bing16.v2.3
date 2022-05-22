@@ -6,8 +6,8 @@
 .rcolor{color: #ff5959}
 
 body{
-	margin-left: 1em;
-	margin-right: 1em;
+	padding-left: 2em;
+	padding-right: 2em;
 	font-size: 18px;
 	-webkit-text-size-adjust: none;
 }
