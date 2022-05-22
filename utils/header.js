@@ -14,7 +14,6 @@ const headerForm={
         },
         methods: {
             click: function () {
-                console.log(this.hide)
                 this.hide = !this.hide
             }
         },
