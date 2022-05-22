@@ -113,6 +113,11 @@ button {
     margin-top: 24px;
 }
 
+.NavUl {
+    margin: 0;
+    padding: 0;
+}
+
 .NavList {
     list-style: none;
     position: relative;

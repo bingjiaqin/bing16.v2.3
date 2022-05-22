@@ -20,7 +20,7 @@ const headerForm={
         <div class="NavName">Bing16</div>\
     </div>\
     <div class="NavRight">\
-        <ul>\
+        <ul class="NavUl">\
             <li class="NavList" v-for="nav in navs" v-bind:style="nav.style">\
                 <a v-bind:href="nav.href"><span v-if="nav.title==pageTitle"><span class="rcolor"><span class="divcss5-x2-header">{{ nav.title }}</span></span></span><span v-else>{{ nav.title }}</span></a>\
             </li>\
