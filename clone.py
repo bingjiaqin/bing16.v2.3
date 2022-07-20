@@ -1,5 +1,5 @@
 import os
 
-os.system("sudo git fetch origin master:temp")
-os.system("sudo git merge temp")
-os.system("sudo git branch -d temp")
+os.system("git fetch origin master:temp")
+os.system("git merge temp")
+os.system("git branch -d temp")
