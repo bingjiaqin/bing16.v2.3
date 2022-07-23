@@ -15,9 +15,9 @@
         <header_form></header_form>
     </header>
 
-    <marquee behavior="scroll" direction="left" class="Info">
-        【2022-05-21】Hello, bing16 v3!
-    </marquee>
+    <div id="marquee" class="Info">
+        <my_marquee></my_marquee>
+    </div>
 
     <div id="wyzx">
     <div class="Intro">
@@ -100,6 +100,7 @@
 </body>
 
 <script type="text/JavaScript" src="./utils/header.js"></script>
+<script type="text/JavaScript" src="./utils/marquee.js"></script>
 <script type="text/JavaScript" src="./utils/statistic.js"></script>
 <script type="text/JavaScript" src="./utils/subscribe.js"></script>
 <script type="text/JavaScript" src="./utils/isMobile.js"></script>
@@ -129,6 +130,13 @@
         el: "#navHead",
         components: {
             "header_form": headerForm
+        }
+    })
+
+    var marquee = new Vue({
+        el: "#marquee",
+        components: {
+            "my_marquee": myMarquee
         }
     })
 

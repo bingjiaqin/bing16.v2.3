@@ -15,9 +15,9 @@
         <header_form></header_form>
     </header>
 
-    <marquee behavior="scroll" direction="left" class="Info">
-        【2022-05-21】Hello, bing16 v3!
-    </marquee>
+    <div id="marquee" class="Info">
+        <my_marquee></my_marquee>
+    </div>
 
 	<!--悬浮窗-->
 	<div class="Ad" id="ad">
@@ -69,6 +69,7 @@
 </body>
 
 <script type="text/JavaScript" src="./utils/header.js"></script>
+<script type="text/JavaScript" src="./utils/marquee.js"></script>
 <script type="text/JavaScript" src="./utils/statistic.js"></script>
 <script type="text/JavaScript" src="./utils/isMobile.js"></script>
 <script type='text/javascript' src="https://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
@@ -95,6 +96,13 @@
         el: "#navHead",
         components: {
             "header_form": headerForm
+        }
+    })
+
+    var marquee = new Vue({
+        el: "#marquee",
+        components: {
+            "my_marquee": myMarquee
         }
     })
 
