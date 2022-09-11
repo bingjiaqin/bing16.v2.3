@@ -7,6 +7,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" media="screen"/>
 <script src="https://cdn.bootcss.com/vue/2.5.20/vue.min.js"></script>
 <script type="text/javascript" src="./utils/51la.js"></script>
+<script src="./utils/pubu.js"></script>
 </head>
 
 <body>
@@ -61,9 +62,29 @@
     
     <hr>
 
+    <div id = "mainPicture">
+        <h2><span class="divcss5-x2-y">一些照片</span></h2>
+
+        <div id = "container">
+            <div v-for="group in pictures">
+                <h3 style="text-align: center;">{{ group.group }}</h3>
+                <div class = "group" style="position: relative;">
+                    <div class="box" v-for="picture in group.list">
+                        <div class="box-img">
+                            <img v-bind:src="picture.url" v-bind:title="picture.description" style="width: 100%;">
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
     <div class="Content">
         <div>
-        <h2><span class="divcss5-x2-y">内容推荐</span></h2>
+        <h2><span class="divcss5-x2-b">内容推荐</span></h2>
 
         <details id="yinCang" close>
             <summary>隐藏内容</summary>
@@ -119,9 +140,11 @@
     let yincangData = []
     let pictures = []
     let adData = {}
+    let mainPictures = []
     $.getJSON("./data/yincang.json", data=>yincangData=data)
     $.getJSON("./data/ad.json", data=>adData=data)
     $.getJSON("./data/pic.json", data=>pictures=data)
+    $.getJSON("./data/main_pic.json", data=>mainPictures=data)
 
     var appNav = new Vue({
         el: "#navHead",
@@ -161,6 +184,13 @@
         el: "#picture",
         data: {
             pictures: pictures
+        }
+    })
+
+    var appMainPic = new Vue({
+        el: "#mainPicture",
+        data: {
+            pictures: mainPictures
         }
     })
 

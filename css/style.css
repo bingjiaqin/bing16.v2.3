@@ -6,11 +6,9 @@
 .rcolor{color: #ff5959}
 
 body{
-	width: 70%;
 	min-width: 930px;
-	max-width: 1080px;
-	padding-left: 100px;
-	padding-right: 100px;
+	padding-left: 150px;
+	padding-right: 150px;
 	margin: auto;
 	font-size: 18px;
 	-webkit-text-size-adjust: none;
@@ -234,6 +232,17 @@ button {
 	max-width: 100%;
 }
 
+.box{
+    width: 33%;
+    float: left;/* 给每个存放照片box设置为浮动元素，让所有的图片浮动到网页的第一行*/
+}
+.box-img{
+    padding: 5px;
+}
+.box-img img {
+    width: 100%;
+    height: auto;
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

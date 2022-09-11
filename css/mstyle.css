@@ -240,6 +240,19 @@ button {
 	justify-content: space-around;
 }
 
+.box{
+    width: 100%;
+    float: left;/* 给每个存放照片box设置为浮动元素，让所有的图片浮动到网页的第一行*/
+}
+.box-img{
+	margin: 0 4em;
+    padding: 5px;
+}
+.box-img img {
+    width: 50%;
+    height: auto;
+}
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
