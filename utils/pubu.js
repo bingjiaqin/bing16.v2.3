@@ -1,6 +1,6 @@
 window.onload = function() {
-    imgLocation('container', 'box', 'group')
-  }
+  imgLocation('container', 'pubuBox', 'pubuGroup')
+}
    
 // 获取到当前有多少张图片要摆放
 function imgLocation(parent, content, group) {
@@ -9,6 +9,9 @@ function imgLocation(parent, content, group) {
   var ccontent = getChildElemnt(cparent, content, group)//图片时放在container盒子里的box盒子里的，因此我们还需要定义一个函数getChildElemnt（）获取出box里的图片
   
   for (var j = 1; j < ccontent.length; j++) {
+    if (ccontent[j].length == 0) {
+      continue
+    }
     var imgWidth = ccontent[j][0].offsetWidth//获取css中我们给每张图片设置的固定宽度
     var num = 0
     var offsetLeft = 0
@@ -52,7 +55,7 @@ function getChildElemnt(parent, content, group) {
   contentGroup.push(groupList)
   var contentArr = []
   const allContent = parent.getElementsByTagName('*')//通过内置函数getElementsByTagName()将container中的所有元素取出来
-  for (var i = 0; i < allContent.length; i++) {//但是container中所有的元素中我们只需要的是所有的img，为此我们写个for循环将所用img筛选出来存放在一个数组中
+  for (var i = 0; i < allContent.length; i++) { // 但是container中所有的元素中我们只需要的是所有的img，为此我们写个for循环将所用img筛选出来存放在一个数组中
     if (allContent[i].className == group) {
       if (groupList.length != 0) {
         contentGroup.push(contentArr)

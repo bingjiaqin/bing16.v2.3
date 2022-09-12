@@ -240,19 +240,32 @@ button {
 	justify-content: space-around;
 }
 
-.box{
-    width: 100%;
-    float: left;/* 给每个存放照片box设置为浮动元素，让所有的图片浮动到网页的第一行*/
+.pubuBox{
+    width: 33.33%;
+    float: left;
 }
-.box-img{
-	margin: 0;
-    padding: 5px;
+.boxImg{
+	z-index: 11;
+	float: left;
+	position: relative;
+	transition: all 0.6s;
 }
-.box-img img {
-    width: 50%;
-    height: auto;
+.boxImg:hover{
+	z-index: 9;
+	filter: brightness(0.45);
+	opacity: 0.95;
+	transition: all 0.6s;
 }
-
+.boxImgTitle{
+	z-index: 10;
+	position: absolute;
+	padding-top: 1em;
+	padding-left: 2em;
+	color: #ffffff;
+}
+.boxImgTitle:hover{
+	z-index: 12;
+}
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
