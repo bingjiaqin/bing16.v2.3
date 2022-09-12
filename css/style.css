@@ -253,6 +253,7 @@ button {
 	position: absolute;
 	padding-top: 1em;
 	padding-left: 2em;
+	right: 2em;
 	color: #ffffff;
 }
 .boxImgTitle:hover{
