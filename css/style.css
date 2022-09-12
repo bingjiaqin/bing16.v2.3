@@ -232,6 +232,9 @@ button {
 	max-width: 100%;
 }
 
+.pubuGroup{
+	font-size: 0;
+}
 .pubuBox{
     width: 33.33%;
     float: left;
