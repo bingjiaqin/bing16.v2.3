@@ -6,9 +6,7 @@
 .rcolor{color: #ff5959}
 
 body{
-	overflow-x:hidden;
-	margin-left: 2em;
-	margin-right: 2em;
+	overflow-x: hidden;
 	font-size: 18px;
 	-webkit-text-size-adjust: none;
 }

@@ -20,20 +20,15 @@
         <my_marquee></my_marquee>
     </div>
 
-    <!--悬浮窗-->
-    <div class="Ad" id="ad">
-        <a href="" @click="showMessage"><img src="images/qr.png" width="80px" title="其他联系方式"></a>
-    </div>
-
     <!-- Body -->
 
-    <div class="Intro">
+    <div class="Intro" id="intro">
         <!-- 欢迎语 -->
         <div class="IntroBox">
             <h2>你好，欣喜相逢</h2>
             <p><span class="divcss5-x2-r">我就是我</span>。</p>
             <p>这里是我的个人网站，会有一些个人的<span class="divcss5-x2-b">项目记录</span>以及比较<span class="divcss5-x2-y">个人的随感</span>。</p>
-            <p>如果你从别的地方找到这里，<span class="divcss5-x2-r">欢迎联系我</span>。</p>
+            <p>如果你从别的地方找到这里，<span class="divcss5-x2-r" @click="showMessage">欢迎联系我</span>。</p>
         </div>
 
         <div class="IntroBoxBreak"></div>
@@ -181,8 +176,8 @@
         }
     })
 
-    var appAd = new Vue({
-        el: "#ad",
+    var appIntro = new Vue({
+        el: "#intro",
         data: {
             message: adData.message
         },
