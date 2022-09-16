@@ -5,23 +5,27 @@
 		"list": [
 			{
 				"url": "./images/main/IMG_0285.JPG",
-				"description": "海·惠州"
+				"description": "我们决定来一场说走就走的旅行，"
 			},
 			{
 				"url": "./images/main/IMG_0306.JPG",
-				"description": "说走就走的旅行"
+				"description": "在人间边界处，找到一所面朝大海的房子。"
 			},
 			{
 				"url": "./images/main/IMG_0301.JPG",
-				"description": "双月湾"
+				"description": "在惠州的双月湾，"
 			},
 			{
 				"url": "./images/main/IMG_0302.JPG",
-				"description": "海·惠州"
+				"description": "我们看着海水和沙滩，"
+			},
+			{
+				"url": "./images/main/P20716-210822.JPG",
+				"description": "听着潮起潮落，"
 			},
 			{
 				"url": "./images/main/IMG_0332.JPG",
-				"description": "日出失败"
+				"description": "迎来第二天日出的失败。"
 			}
 		]
 	},
@@ -31,35 +35,35 @@
 		"list": [
 			{
 				"url": "./images/main/IMG_0414.JPG",
-				"description": "云"
+				"description": "从早晨"
 			},
 			{
 				"url": "./images/main/IMG_0410.JPG",
-				"description": "晚霞"
+				"description": "到傍晚，"
 			},
 			{
 				"url": "./images/main/IMG_0450.JPG",
-				"description": "夜晚"
+				"description": "再到晚上。"
 			},
 			{
 				"url": "./images/main/IMG_0444.JPG",
-				"description": "夜晚窗外的灯光穿过玻璃窗照在墙顶上"
+				"description": "一直到窗外的灯光穿过玻璃窗照在墙顶。"
 			},
 			{
 				"url": "./images/main/IMG_0440.JPG",
-				"description": "紫"
+				"description": "从天空由紫色"
 			},
 			{
 				"url": "./images/main/IMG_0429.JPG",
-				"description": "夜色降临"
+				"description": "到蓝色，"
 			},
 			{
 				"url": "./images/main/IMG_0454.JPG",
-				"description": "灯"
+				"description": "再到手中点亮的灯。"
 			},
 			{
 				"url": "./images/main/IMG_0443.JPG",
-				"description": "夜晚的色彩"
+				"description": "发现奔波与停留之间，生活依旧充满色彩。"
 			}
 		]
 	}

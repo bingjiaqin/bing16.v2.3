@@ -30,6 +30,9 @@ function imgLocation(parent, content, group) {
     for (var i = 0; i < ccontent[j].length; i++) { 
       if (i < num) {  //我们先将第一行摆满
         BoxHeightArr[i] = ccontent[j][i].offsetHeight //这里我们通过BoxHeightArr[]数组存放每列的高度
+        ccontent[j][i].style.position = 'absolute'
+        ccontent[j][i].style.top = '0px'
+        ccontent[j][i].style.left = i * imgWidth + 'px'
       } else { //剩下的图片我们依次次优先选择摆在高度最低的一列后面
         var minHeight = Math.min.apply(null, BoxHeightArr) //通过将Math.min()中求最小值的方法应用到数组中，求出高度最低的列
         var minIndex = getMinHeightLocation(BoxHeightArr, minHeight) //确定了高度最低的列后我们就差求出列的位置了,我们通过编写一个函数实现
