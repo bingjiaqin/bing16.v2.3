@@ -14,11 +14,9 @@ function imgLocation(parent, content, group) {
     }
     var imgWidth = ccontent[j][0].offsetWidth//获取css中我们给每张图片设置的固定宽度
     var num = 0
-    var offsetLeft = 0
     for (var i = 0; i < ccontent[j].length; i++) {
-      if (offsetLeft <= ccontent[j][i].offsetLeft) {
+      if (ccontent[j][i].offsetTop == 0) {
         num++
-        offsetLeft = ccontent[j][i].offsetLeft
       } else {
         break
       }
@@ -71,7 +69,6 @@ function getChildElemnt(parent, content, group) {
     }
   }
   contentGroup.push(contentArr)
-  console.log(contentGroup)
   return contentGroup
 }
 
