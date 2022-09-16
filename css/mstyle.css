@@ -241,14 +241,15 @@ button {
 }
 
 .pubuBox{
-    width: 100%;
     float: left;
+    padding-top: 10px;
 }
 .boxImg{
 	z-index: 11;
 	float: left;
 	position: relative;
 	transition: all 0.1s;
+    box-shadow: 0 0 5px #ccc;
 }
 .boxImg:hover{
 	z-index: 9;
