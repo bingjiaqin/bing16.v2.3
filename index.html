@@ -200,7 +200,8 @@
         data: {
             group: "",
             pictures: mainPictures,
-            groupPicture: mainPictures
+            groupPicture: mainPictures,
+            screenWidth: document.body.clientWidth
         },
         methods: {
             selectGroup: function(group) {
@@ -210,7 +211,7 @@
         },
         watch: {
             groupPicture: {
-                handler(oldValue, newValue) {
+                handler() {
                     if (this.group == '') {
                         this.$nextTick(() =>  imgLocation('container', 'pubuBox', 'pubuGroup'))
                     } else {
@@ -218,7 +219,21 @@
                     }
                 },
                 deep: true
+            },
+            screenWidth: {
+                handler() {
+                    if (this.group == '') {
+                        this.$nextTick(() =>  imgLocation('container', 'pubuBox', 'pubuGroup'))
+                    } else {
+                        this.$nextTick(() =>  imgLocation('subContainer', 'pubuBox', 'pubuGroup'))
+                    }
+                },
             }
+        },
+        mounted() {
+            window.onresize = () => {
+                this.screenWidth = document.body.clientWidth;
+            };
         }
     })
 
