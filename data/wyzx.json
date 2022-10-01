@@ -1,4 +1,5 @@
 [
+    {"title": "一个网页制作作业", "intro": "初次学习网页制作的时候的课程作业，部分资源做了些许修改。", "href": "wyzx/哆啦世界/welcome.html", "tags": ["html"]},
     {"title": "基于XY双轴移动LED的图片再现装置", "intro": "个人的智能硬件与智能系统小组项目。目前第二版封装完毕。", "href": "wyzx/ClassProject.html", "tags": ["machine", "art", "python", "arduino"]},
     {"title": "MyRPI", "intro": "时隔多日，直到2022年中旬，该树莓派才沦为软路由，并兼具了NAS的功能。。。", "href": "wyzx/MyRPi.html", "tags": ["rpi", "ubuntu", "python"]},
     {"title": "ReRe-未来之书", "intro": "比赛项目，目前搁置。。。", "href": "wyzx/ReRe.html", "tags": ["art", "machine", "arduino"]},
