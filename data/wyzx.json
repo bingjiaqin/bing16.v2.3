@@ -1,6 +1,6 @@
 [
     {"title": "基于XY双轴移动LED的图片再现装置", "intro": "个人的智能硬件与智能系统小组项目。目前第二版封装完毕。", "href": "wyzx/ClassProject.html", "tags": ["machine", "art", "python", "arduino"]},
-    {"title": "MyRPI", "intro": "个人的树莓派尝试。因为摄像头原因搁置中。。。", "href": "wyzx/MyRPi.html", "tags": ["rpi", "ubuntu", "python"]},
+    {"title": "MyRPI", "intro": "时隔多日，直到2022年中旬，该树莓派才沦为软路由，并兼具了NAS的功能。。。", "href": "wyzx/MyRPi.html", "tags": ["rpi", "ubuntu", "python"]},
     {"title": "ReRe-未来之书", "intro": "比赛项目，目前搁置。。。", "href": "wyzx/ReRe.html", "tags": ["art", "machine", "arduino"]},
     {"title": "ROS平台简易教程", "intro": "结合个人在SRT项目中的使用情况完成。", "href": "wyzx/ROSLearning.html", "tags": ["python", "c++", "ubuntu", "ros"]},
     {"title": "Bing16的柯基小店", "intro": "一些在科服修电脑的经验总结。", "href": "wyzx/Kefujilu.html"},

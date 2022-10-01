@@ -314,6 +314,13 @@ if  __name__ == '__main__' :
 	时发现由于硬件及系统不同摄像头方面的调用存在问题。</p>
 	<p>人脸识别方面参考<a href="https://blog.csdn.net/weixin_37554177/article/details/72884682">“利用Python、openCV打造自己的人脸识别AI系统”</a></p>
 	</div>
+
+    <h2>软路由 & NAS</h2>
+    <p>时隔多日，直到2022年中旬，该树莓派才沦为软路由，并兼具了NAS的功能。（后面重新购入一个4B作为软路由 & NAS）</p>
+    <p>相关的配置可以参考<a href="https://zhuanlan.zhihu.com/p/451788328">树莓派4B刷OpenWrt做路由器的经验+踩坑</a>。我采用的是直接刷编译好的系统的策略，省去了各种配置的繁琐过程，期间踩了各种坑，直到看到这篇知乎文章。基本上踩过的坑这篇都提到了，而且提到的基本都踩了几遍，所以现如今应该可以直接参考。</p>
+    <p>我当前具体使用到的功能主要包括：软路由爬tizi、KMS、SMB、定时任务跑脚本、游戏加速、下载器。</p>
+    <p>具体使用起来，作为NAS，连接网线的时候速度还好，但wifi接入时，拷贝大量数据的场景下就挺吃力了，尤其当作mac时间机器初次拷贝就要很久（相关配置参考：<a href="https://www.bilibili.com/read/cv17340577/">时间机器还可以和smb共享文件夹配合做局域网内备份&苹果备份&nas苹果备份</a>、<a href="https://www.bilibili.com/read/cv14824020">Mac时间机器备份加速教程，Time Machine 备份太慢的解决方法</a>）。</p>
+    <p>未来可能想要做的功能有：接入homekit进行智能控制（可能需要红外硬件）、基于docker的尝试（毕竟tf卡还有很大一块空间）……</p>
 <ul class="icons">
 	<li><a href="../wyzx.html"><span class="label">back</span></a></li>
 					</ul>

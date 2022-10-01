@@ -1,0 +1,15 @@
+.picture-box {
+	padding-top: 1em;
+	padding-bottom: 2em;
+    float: left;
+}
+
+.picture-box-left {
+	width: 49.5%;
+    float: left;
+}
+
+.picture-box-right {
+	width: 49.5%;
+	float: right;
+}
