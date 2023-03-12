@@ -215,7 +215,7 @@
                     if (this.group == '') {
                         this.$nextTick(() =>  imgLocation('container', 'pubuBox', 'pubuGroup'))
                     } else {
-                        this.$nextTick(() =>  imgLocation('subContainer', 'pubuBox', 'pubuGroup'))
+                        setInterval("imgLocation('subContainer', 'pubuBox', 'pubuGroup')", 500)
                     }
                 },
                 deep: true
